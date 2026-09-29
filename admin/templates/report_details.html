@@ -1,0 +1,419 @@
+{% extends "admin_layout.html" %}
+
+
+
+{% block title %}
+
+Report Details | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+
+href="{{ url_for('admin.static',
+filename='css/report_details.css') }}">
+
+{% endblock %}
+
+
+
+
+
+{% block page_title %}
+
+Report Details
+
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="report-details-container">
+
+
+
+
+
+<!-- ===============================
+     Header
+================================ -->
+
+
+<div class="details-header">
+
+
+<div>
+
+
+<h1>
+
+Detection Report Details
+
+</h1>
+
+
+<p>
+
+Complete AI analysis report
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="details-actions">
+
+
+<a href="{{ url_for('admin.reports') }}"
+
+class="back-btn">
+
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+
+</a>
+
+
+
+
+
+<a href="{{ url_for('admin.export_single_report',
+report_id=report.id) }}"
+
+class="download-btn">
+
+
+<i class="fa-solid fa-file-pdf"></i>
+
+Download PDF
+
+
+</a>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+     User Information
+================================ -->
+
+
+<div class="details-card">
+
+
+<h5>
+
+User Information
+
+</h5>
+
+
+
+<div class="info-grid">
+
+
+<div>
+
+<label>
+
+Name
+
+</label>
+
+
+<p>
+
+{{ report.full_name }}
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<label>
+
+Email
+
+</label>
+
+
+<p>
+
+{{ report.email }}
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<label>
+
+Date
+
+</label>
+
+
+<p>
+
+{{ report.created_at }}
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+     News Information
+================================ -->
+
+
+
+<div class="details-card">
+
+
+<h5>
+
+News Analysis
+
+</h5>
+
+
+
+
+
+<div class="news-box">
+
+
+<label>
+
+News Text
+
+</label>
+
+
+
+<p>
+
+{{ report.news_text }}
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+     AI Result
+================================ -->
+
+
+
+<div class="details-card">
+
+
+<h5>
+
+AI Prediction Result
+
+</h5>
+
+
+
+
+<div class="result-grid">
+
+
+
+
+
+<div class="result-item">
+
+
+<label>
+
+Prediction
+
+</label>
+
+
+
+{% if report.prediction == "Fake News" %}
+
+
+<span class="fake-result">
+
+<i class="fa-solid fa-xmark"></i>
+
+Fake News
+
+</span>
+
+
+{% else %}
+
+
+<span class="real-result">
+
+<i class="fa-solid fa-check"></i>
+
+Real News
+
+</span>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-item">
+
+
+<label>
+
+Confidence
+
+</label>
+
+
+
+<div class="confidence">
+
+
+<div class="progress">
+
+
+<div class="progress-fill"
+
+style="width: {{ report.confidence }}%">
+
+
+</div>
+
+
+</div>
+
+
+
+<span>
+
+{{ report.confidence }}%
+
+</span>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

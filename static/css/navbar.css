@@ -1,0 +1,418 @@
+/*====================================
+            NAVBAR
+=====================================*/
+
+.custom-navbar{
+
+    background:#111827;
+
+    padding:12px 0;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+.custom-navbar .container{
+
+    max-width:1320px;
+
+}
+
+
+/*====================================
+              LOGO
+=====================================*/
+
+.logo-text{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:#fff !important;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.logo-img{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+}
+
+.logo-text:hover .logo-img{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+.logo-text span{
+
+    color:#fff;
+
+}
+
+
+
+/*====================================
+          NAVIGATION MENU
+=====================================*/
+
+.navbar-collapse{
+
+    justify-content:flex-end;
+
+}
+
+.navbar-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    flex-wrap:nowrap;
+
+}
+
+
+
+/*====================================
+            NAV LINKS
+=====================================*/
+
+.navbar-nav .nav-link{
+
+    color:#fff !important;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+    white-space:nowrap;
+
+}
+
+.navbar-nav .nav-link:hover{
+
+    background:#2563EB;
+
+    color:#fff !important;
+
+}
+
+.navbar-nav .nav-link.active{
+
+    background:#38BDF8;
+
+    color:#111827 !important;
+
+    font-weight:700;
+
+}
+
+
+
+/*====================================
+            BUTTONS
+=====================================*/
+
+.login-btn,
+
+.register-btn,
+
+.logout-btn,
+
+.admin-btn{
+
+    border-radius:30px;
+
+    padding:8px 18px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    transition:.3s;
+
+}
+
+
+
+/*====================================
+            LOGIN
+=====================================*/
+
+.login-btn{
+
+    border:2px solid #fff;
+
+    color:#fff;
+
+    background:transparent;
+
+}
+
+.login-btn:hover{
+
+    background:#fff;
+
+    color:#111827;
+
+}
+
+
+
+/*====================================
+            REGISTER
+=====================================*/
+
+.register-btn{
+
+    background:#38BDF8;
+
+    color:#111827;
+
+    border:none;
+
+}
+
+.register-btn:hover{
+
+    background:#fff;
+
+    color:#2563EB;
+
+}
+
+
+
+/*====================================
+            ADMIN
+=====================================*/
+
+.admin-btn{
+
+    background:#F59E0B;
+
+    color:#fff;
+
+}
+
+.admin-btn:hover{
+
+    background:#D97706;
+
+    color:#fff;
+
+}
+
+
+
+/*====================================
+            LOGOUT
+=====================================*/
+
+.logout-btn{
+
+    background:#EF4444;
+
+    color:#fff;
+
+}
+
+.logout-btn:hover{
+
+    background:#DC2626;
+
+    color:#fff;
+
+}
+
+
+
+/*====================================
+            ICONS
+=====================================*/
+
+.login-btn i,
+
+.logout-btn i,
+
+.admin-btn i,
+
+.nav-link i{
+
+    margin-right:6px;
+
+}
+
+
+
+/*====================================
+        TOGGLER BUTTON
+=====================================*/
+
+.navbar-toggler{
+
+    border:none;
+
+}
+
+.navbar-toggler:focus{
+
+    box-shadow:none;
+
+}
+
+.navbar-toggler-icon{
+
+    filter:invert(1);
+
+}
+
+
+
+/*====================================
+        MOBILE VIEW
+=====================================*/
+
+@media (max-width:991px){
+
+.custom-navbar{
+
+    padding:10px 0;
+
+}
+
+.logo-text{
+
+    font-size:20px;
+
+}
+
+.logo-img{
+
+    width:42px;
+
+    height:42px;
+
+}
+
+.navbar-collapse{
+
+    margin-top:15px;
+
+    background:#111827;
+
+    border-radius:18px;
+
+    padding:20px;
+
+}
+
+.navbar-nav{
+
+    display:block;
+
+    text-align:center;
+
+}
+
+.navbar-nav .nav-item{
+
+    margin:10px 0;
+
+}
+
+.login-btn,
+
+.register-btn,
+
+.logout-btn,
+
+.admin-btn{
+
+    width:100%;
+
+    display:block;
+
+}
+
+}
+
+
+
+/*====================================
+        SMALL MOBILE
+=====================================*/
+
+@media (max-width:576px){
+
+.logo-img{
+
+    width:36px;
+
+    height:36px;
+
+}
+
+.logo-text{
+
+    font-size:18px;
+
+}
+
+}
+
+
+
+/*====================================
+        LARGE DESKTOP
+=====================================*/
+
+@media (min-width:1200px){
+
+.navbar-nav{
+
+    gap:10px;
+
+}
+
+.navbar-nav .nav-link{
+
+    padding:9px 16px;
+
+}
+
+}

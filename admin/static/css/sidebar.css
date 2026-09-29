@@ -1,0 +1,448 @@
+/* ==========================================
+   Fake News Detector AI - Sidebar CSS
+   ========================================== */
+
+
+/* ==========================================
+   Sidebar Main
+   ========================================== */
+
+
+.admin-sidebar {
+
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 260px;
+
+    height: 100vh;
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    z-index: 1000;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+
+        5px 0 20px rgba(0,0,0,0.15);
+
+
+    overflow-y: auto;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Logo Section
+   ========================================== */
+
+
+.sidebar-logo {
+
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 20px;
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,0.08);
+
+
+}
+
+
+
+
+/* .logo-icon {
+
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-right:12px;
+
+
+} */
+
+.logo-icon img {
+
+
+
+    width:30px;
+
+    height: 30px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+
+
+
+}
+
+
+
+.logo-icon i {
+
+
+    font-size:22px;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.logo-text h4 {
+
+
+    margin:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:white;
+
+
+}
+
+
+
+.logo-text span {
+
+
+    font-size:12px;
+    font-weight:600;
+
+    color:white;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Menu
+   ========================================== */
+
+
+.sidebar-menu {
+
+
+    list-style:none;
+
+    padding:20px 15px;
+
+    margin:0;
+
+    flex:1;
+
+
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.sidebar-menu li {
+    margin-bottom:8px;
+}
+
+/* .menu-item {
+
+
+    margin-bottom:8px;
+
+
+} */
+
+
+
+
+
+.menu-link {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:13px 15px;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:all 0.3s ease;
+
+
+}
+
+
+
+
+
+.menu-link i {
+
+
+    width:20px;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+.menu-link:hover {
+
+
+    background:#1e293b;
+
+    color:white;
+
+    transform:translateX(5px);
+
+
+}
+
+
+
+
+
+/* Active Menu */
+
+
+.menu-link.active {
+
+
+    background:#2563eb;
+
+    color:white;
+
+    box-shadow:
+
+    0 5px 15px rgba(37,99,235,0.35);
+
+
+}
+
+
+
+
+
+.menu-link.active i {
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Sidebar Footer
+   ========================================== */
+
+
+.sidebar-footer {
+
+
+    padding:20px;
+
+    border-top:
+
+    1px solid rgba(255,255,255,0.08);
+
+
+}
+
+
+
+
+
+.logout-link {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    color:#fca5a5;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:0.3s ease;
+
+
+}
+
+
+
+
+.logout-link:hover {
+
+
+    background:#7f1d1d;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.logout-link i {
+
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Sidebar Scrollbar
+   ========================================== */
+
+
+.admin-sidebar::-webkit-scrollbar {
+
+
+    width:5px;
+
+
+}
+
+
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+
+
+    background:#334155;
+
+    border-radius:10px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Collapsed Sidebar
+   ========================================== */
+
+
+.admin-sidebar.collapsed {
+
+
+    width:80px;
+
+
+}
+
+
+
+.admin-sidebar.collapsed .logo-text,
+
+.admin-sidebar.collapsed span {
+
+
+    display:none;
+
+
+}
+
+
+
+.admin-sidebar.collapsed .menu-link {
+
+
+    justify-content:center;
+
+
+}
+
+
+
+.admin-sidebar.collapsed .menu-link i {
+
+
+    margin:0;
+
+
+}
+
+
+
+

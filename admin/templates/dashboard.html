@@ -1,0 +1,848 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}
+Admin Dashboard | Fake News Detector AI
+{% endblock %}
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+href="{{ url_for('admin.static', filename='css/dashboard.css') }}">
+
+{% endblock %}
+
+
+
+{% block page_title %}
+
+Dashboard Overview
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid dashboard-container">
+
+
+
+    <!-- ===========================================
+                    PAGE HEADER
+    ============================================ -->
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+
+                Welcome Back, Admin 👋
+
+            </h2>
+
+            <p class="text-muted mb-0">
+
+                Monitor users, predictions and AI system performance.
+
+            </p>
+
+        </div>
+
+
+        <!-- <div>
+
+            <button class="btn btn-primary">
+
+                <i class="fa-solid fa-file-export me-2"></i>
+
+                Generate Report
+
+            </button>
+
+        </div> -->
+
+    </div>
+
+
+
+
+
+    <!-- ===========================================
+                    STATISTICS
+    ============================================ -->
+
+    <div class="row mt-4 g-4">
+
+        <!-- USERS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="icon-box bg-primary">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <h6>Total Users</h6>
+
+                    <h2>{{ stats.users }}</h2>
+
+                    <small>Registered Users</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PREDICTIONS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="icon-box bg-success">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                </div>
+
+                <div>
+
+                    <h6>Total Predictions</h6>
+
+                    <h2>{{ stats.predictions }}</h2>
+
+                    <small>AI Detection Requests</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FAKE NEWS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="icon-box bg-danger">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+                <div>
+
+                    <h6>Fake News</h6>
+
+                    <h2>{{ stats.fake }}</h2>
+
+                    <small>Detected Articles</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- REAL NEWS -->
+
+        <div class="col-xl-3 col-md-6">
+
+            <div class="dashboard-card">
+
+                <div class="icon-box bg-warning">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div>
+
+                    <h6>Real News</h6>
+
+                    <h2>{{ stats.real }}</h2>
+
+                    <small>Verified Articles</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+   <!-- ===========================================
+        ANALYTICS SECTION
+=========================================== -->
+
+<div class="row mt-4 analytics-row">
+
+
+    <!-- ==========================
+            PREDICTION ANALYTICS
+    =========================== -->
+
+
+    <div class="col-lg-6">
+
+
+        <div class="admin-card">
+
+
+            <div class="card-header d-flex justify-content-between align-items-center">
+
+
+                <h5 class="mb-0">
+
+                    Prediction Analytics
+
+                </h5>
+
+
+                <span class="badge bg-success">
+
+                    Live
+
+                </span>
+
+
+            </div>
+
+
+
+
+            <div class="card-body">
+
+
+                <div class="chart-container">
+
+
+                    <canvas 
+                        id="predictionChart"
+                        data-fake="{{ stats.fake }}"
+                        data-real="{{ stats.real }}">
+                    </canvas>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- ==========================
+            AI SYSTEM STATUS
+    =========================== -->
+
+
+    <div class="col-lg-6">
+
+
+        <div class="admin-card">
+
+
+
+            <div class="card-header">
+
+
+                <h5 class="mb-0">
+
+                    AI System Status
+
+                </h5>
+
+
+            </div>
+
+
+
+
+            <div class="card-body ai-status-body">
+
+
+
+                <div class="status-item">
+
+
+                    <span>
+
+                        Model Status
+
+                    </span>
+
+
+                    <span class="badge bg-success">
+
+                        Online
+
+                    </span>
+
+
+                </div>
+
+
+
+
+                <hr>
+
+
+
+
+                <div class="status-item">
+
+
+                    <span>
+
+                        Database
+
+                    </span>
+
+
+                    <span class="badge bg-success">
+
+                        Connected
+
+                    </span>
+
+
+                </div>
+
+
+
+
+                <hr>
+
+
+
+
+                <div class="status-item">
+
+
+                    <span>
+
+                        Prediction API
+
+                    </span>
+
+
+                    <span class="badge bg-success">
+
+                        Running
+
+                    </span>
+
+
+                </div>
+
+
+
+
+                <hr>
+
+
+
+
+                <div class="status-item">
+
+
+                    <span>
+
+                        Last Updated
+
+                    </span>
+
+
+                    <strong>
+
+                        Just Now
+
+                    </strong>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+    <!-- ===========================================
+            RECENT ACTIVITY
+    ============================================ -->
+
+    <div class="row mt-4">
+
+        <div class="col-12">
+
+            <div class="admin-card">
+
+                <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <h5 class="mb-0">
+
+                        Recent Prediction Activity
+
+                    </h5>
+
+                    <a href="{{ url_for('admin.predictions') }}"
+                       class="btn btn-sm btn-outline-primary">
+
+                        View All
+
+                    </a>
+
+                </div>
+
+                <div class="card-body table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>User</th>
+
+                                <th>Prediction</th>
+
+                                <th>Confidence</th>
+
+                                <th>Date</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% if recent_activity %}
+                            {% for activity in recent_activity %}
+
+<tr>
+
+    <td>
+
+        <div class="fw-semibold">
+
+            {{ activity.full_name }}
+
+        </div>
+
+    </td>
+
+
+    <td>
+
+        {% if activity.prediction == "Fake News" %}
+
+        <span class="badge bg-danger">
+
+            Fake News
+
+        </span>
+
+        {% else %}
+
+        <span class="badge bg-success">
+
+            Real News
+
+        </span>
+
+        {% endif %}
+
+    </td>
+
+
+    <td>
+
+        {{ activity.confidence }}%
+
+    </td>
+
+
+    <td>
+
+        {{ activity.created_at }}
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+{% else %}
+
+<tr>
+
+    <td colspan="4" class="text-center py-4 text-muted">
+
+        No prediction activity found.
+
+    </td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ===========================================
+            QUICK ACTIONS
+=========================================== -->
+
+<div class="row mt-4">
+
+
+
+    <div class="col-lg-6">
+
+        <div class="admin-card">
+
+            <div class="card-header">
+
+                <h5>
+
+                    Quick Actions
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="d-grid gap-3">
+
+                    <a href="{{ url_for('admin.users') }}"
+                       class="btn btn-outline-primary">
+
+                        <i class="fa-solid fa-users me-2"></i>
+
+                        Manage Users
+
+                    </a>
+
+                    <a href="{{ url_for('admin.predictions') }}"
+                       class="btn btn-outline-success">
+
+                        <i class="fa-solid fa-brain me-2"></i>
+
+                        View Predictions
+
+                    </a>
+
+                    <a href="{{ url_for('admin.messages') }}"
+                       class="btn btn-outline-warning">
+
+                        <i class="fa-solid fa-envelope me-2"></i>
+
+                        Contact Messages
+
+                    </a>
+
+                    <a href="{{ url_for('admin.analytics') }}"
+                       class="btn btn-outline-info">
+
+                        <i class="fa-solid fa-chart-line me-2"></i>
+
+                        Analytics
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="col-lg-6">
+
+        <div class="admin-card">
+
+            <div class="card-header">
+
+                <h5>
+
+                    System Overview
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="overview-item d-flex justify-content-between mb-3">
+
+                    <span>
+
+                        Registered Users
+
+                    </span>
+
+                    <strong>
+
+                        {{ stats.users }}
+
+                    </strong>
+
+                </div>
+
+                <div class="overview-item d-flex justify-content-between mb-3">
+
+                    <span>
+
+                        Total Predictions
+
+                    </span>
+
+                    <strong>
+
+                        {{ stats.predictions }}
+
+                    </strong>
+
+                </div>
+
+                <div class="overview-item d-flex justify-content-between mb-3">
+
+                    <span>
+
+                        Fake News Detected
+
+                    </span>
+
+                    <strong class="text-danger">
+
+                        {{ stats.fake }}
+
+                    </strong>
+
+                </div>
+
+                <div class="overview-item d-flex justify-content-between mb-3">
+
+                    <span>
+
+                        Real News Verified
+
+                    </span>
+
+                    <strong class="text-success">
+
+                        {{ stats.real }}
+
+                    </strong>
+
+                </div>
+
+                <!-- <div class="overview-item d-flex justify-content-between">
+
+                    <span>
+
+                        AI Status
+
+                    </span>
+
+                    <span class="badge bg-success">
+
+                        Operational
+
+                    </span>
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- ===========================================
+        SYSTEM INFORMATION
+=========================================== -->
+
+<!-- <div class="row mt-4">
+
+    <div class="col-12">
+
+        <div class="admin-card">
+
+            <div class="card-header">
+
+                <h5>
+
+                    Fake News Detector AI
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <h6>
+
+                            ML Model
+
+                        </h6>
+
+                        <p class="text-success">
+
+                            Logistic Regression
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h6>
+
+                            Vectorizer
+
+                        </h6>
+
+                        <p>
+
+                            TF-IDF
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h6>
+
+                            Framework
+
+                        </h6>
+
+                        <p>
+
+                            Flask + MySQL
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h6>
+
+                            Version
+
+                        </h6>
+
+                        <p>
+
+                            v1.0.0
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> -->
+<!-- ===========================================
+        PAGE END
+=========================================== -->
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block extra_js %}
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard JS -->
+
+<script src="{{ url_for('admin.static',
+filename='js/dashboard.js') }}"></script>
+
+{% endblock %}

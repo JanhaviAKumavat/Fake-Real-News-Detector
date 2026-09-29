@@ -1,0 +1,517 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+AI News Detector | Fake News Detector
+{% endblock %}
+
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/detector.css') }}">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<!-- ==========================================
+                DETECTOR HEADER
+========================================== -->
+
+
+<section class="detector-header">
+
+
+<div class="container text-center">
+
+
+<h1>
+AI Fake News Detector
+</h1>
+
+
+<p>
+
+Analyze news content using Artificial Intelligence
+and Machine Learning to identify misinformation.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                DETECTOR SECTION
+========================================== -->
+
+
+<section class="detector-section">
+
+
+<div class="container">
+
+
+
+<div class="row justify-content-center">
+
+
+
+<div class="col-lg-9">
+
+
+
+<div class="detector-card">
+
+
+
+
+
+<h2>
+Check Your News
+</h2>
+
+
+
+<p class="subtitle">
+
+Paste your news content below and let AI analyze it.
+
+</p>
+
+
+
+
+
+
+<form method="POST"
+      action="{{ url_for('detector.detector') }}">
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Enter News Text
+</label>
+
+
+<textarea
+
+name="news_text"
+
+class="form-control"
+
+rows="8"
+
+placeholder="Enter news article text here..."
+
+required>{{ news_text }}</textarea>
+
+
+</div>
+
+
+
+
+
+
+<button type="submit"
+        class="btn btn-primary detect-btn"
+        onclick="showLoader()">
+
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Detect News
+
+
+</button>
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+<!-- LOADING -->
+
+
+<div id="loader"
+     class="loader-box">
+
+
+<div class="spinner-border text-primary">
+
+</div>
+
+
+<p>
+AI is analyzing the news...
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                RESULT SECTION
+========================================== -->
+
+
+{% if result %}
+
+
+<section class="result-section">
+
+
+<div class="container">
+
+
+<div class="result-card
+
+{% if result == 'Fake News' %}
+
+fake-result
+
+{% else %}
+
+real-result
+
+{% endif %}
+
+">
+
+
+
+
+
+<div class="result-icon">
+
+
+{% if result == "Fake News" %}
+
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+
+{% else %}
+
+
+<i class="fa-solid fa-circle-check"></i>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+
+<h2>
+
+{{ result }}
+
+</h2>
+
+
+
+
+
+<p>
+
+AI Confidence Score
+
+</p>
+
+
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar"
+
+role="progressbar"
+
+style="width: {{ confidence|default(0) }}%">
+
+
+{{ confidence }}%
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                HOW IT WORKS
+========================================== -->
+
+
+<section class="working-section">
+
+
+<div class="container">
+
+
+
+<div class="section-title">
+
+
+<h2>
+How AI Detects Fake News
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="row g-4">
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="work-card">
+
+
+<i class="fa-solid fa-file-lines"></i>
+
+
+<h4>
+Input
+</h4>
+
+
+<p>
+User enters news content.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="work-card">
+
+
+<i class="fa-solid fa-filter"></i>
+
+
+<h4>
+Processing
+</h4>
+
+
+<p>
+Text cleaning and feature extraction.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="work-card">
+
+
+<i class="fa-solid fa-brain"></i>
+
+
+<h4>
+AI Model
+</h4>
+
+
+<p>
+Machine Learning predicts authenticity.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="work-card">
+
+
+<i class="fa-solid fa-chart-simple"></i>
+
+
+<h4>
+Result
+</h4>
+
+
+<p>
+Fake/Real result with confidence.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                JAVASCRIPT
+========================================== -->
+
+
+<script>
+
+
+function showLoader(){
+
+
+    document.getElementById("loader").style.display="block";
+
+
+}
+
+
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,712 @@
+{% extends "admin_layout.html" %}
+
+
+
+
+{% block title %}
+
+Prediction Management | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block extra_css %}
+
+
+<link rel="stylesheet"
+
+href="{{ url_for('admin.static',
+filename='css/predictions.css') }}">
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block page_title %}
+
+Prediction History
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="predictions-container">
+
+
+
+
+
+
+
+<!-- =====================================
+     Page Header
+===================================== -->
+
+
+<div class="page-header">
+
+
+
+    <div>
+
+
+        <h1>
+
+            Prediction Reports
+
+        </h1>
+
+
+        <p>
+
+            Monitor all AI fake news detection activities
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <div>
+
+
+        <button class="admin-btn admin-btn-primary">
+
+
+            <i class="fa-solid fa-download"></i>
+
+
+            Export Report
+
+
+        </button>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Prediction Summary
+===================================== -->
+
+
+<div class="prediction-summary">
+
+
+
+
+
+<div class="prediction-card">
+
+
+    <div class="prediction-icon blue">
+
+
+        <i class="fa-solid fa-file-lines"></i>
+
+
+    </div>
+
+
+
+    <div>
+
+
+        <h3>
+
+            {{ predictions|length }}
+
+        </h3>
+
+
+        <p>
+
+            Total Predictions
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="prediction-card">
+
+
+    <div class="prediction-icon red">
+
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+
+    </div>
+
+
+
+    <div>
+
+
+        <h3>
+
+            Fake News
+
+        </h3>
+
+
+        <p>
+
+            Detected Results
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="prediction-card">
+
+
+    <div class="prediction-icon green">
+
+
+        <i class="fa-solid fa-circle-check"></i>
+
+
+    </div>
+
+
+
+    <div>
+
+
+        <h3>
+
+            Real News
+
+        </h3>
+
+
+        <p>
+
+            Verified Results
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Prediction Table
+===================================== -->
+
+
+<div class="admin-card prediction-table-card">
+
+
+
+
+
+<div class="table-header">
+
+
+
+<h5>
+
+All Predictions
+
+</h5>
+
+
+
+
+
+
+<div class="table-search">
+
+
+<input
+
+type="text"
+
+id="predictionSearch"
+
+placeholder="Search predictions...">
+
+
+<i class="fa-solid fa-search"></i>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+
+
+
+
+
+<table class="table prediction-table"
+
+id="predictionTable">
+
+
+
+
+
+<thead>
+
+
+<tr>
+
+
+
+<th>
+#
+</th>
+
+
+<th>
+User
+</th>
+
+
+<th>
+Prediction
+</th>
+
+
+<th>
+Confidence
+</th>
+
+
+<th>
+Date
+</th>
+
+
+<th>
+Action
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+
+
+
+<tbody>
+
+
+
+{% if predictions %}
+
+
+
+
+
+
+{% for prediction in predictions %}
+
+
+
+<tr>
+
+
+
+<td>
+
+{{ loop.index }}
+
+</td>
+
+
+
+
+
+
+<td>
+
+
+<div class="user-name">
+
+
+<div class="user-avatar">
+
+
+{{ prediction.full_name[0]|upper }}
+
+
+</div>
+
+
+
+<span>
+
+{{ prediction.full_name }}
+
+</span>
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+
+
+{% if prediction.prediction == "Fake News" %}
+
+
+
+<span class="badge-fake">
+
+
+<i class="fa-solid fa-xmark"></i>
+
+Fake News
+
+
+</span>
+
+
+
+{% else %}
+
+
+
+<span class="badge-real">
+
+
+<i class="fa-solid fa-check"></i>
+
+Real News
+
+
+</span>
+
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+
+<div class="confidence-bar">
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar"
+
+style="width: {{ prediction.confidence }}%">
+
+
+</div>
+
+
+</div>
+
+
+
+
+<span>
+
+{{ prediction.confidence }}%
+
+</span>
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+{{ prediction.created_at }}
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+
+<div class="action-buttons">
+
+
+
+<a href="#"
+
+class="view-btn"
+
+title="View Details">
+
+
+<i class="fa-solid fa-eye"></i>
+
+
+</a>
+
+
+
+</div>
+
+
+
+</td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+{% else %}
+
+
+
+<tr>
+
+
+<td colspan="6">
+
+
+<div class="empty-data">
+
+
+<i class="fa-solid fa-file-circle-xmark"></i>
+
+
+<p>
+
+No prediction history available
+
+</p>
+
+
+</div>
+
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+</tbody>
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block extra_js %}
+
+
+<script src="{{ url_for('admin.static',
+filename='js/predictions.js') }}"></script>
+
+
+{% endblock %}

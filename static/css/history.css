@@ -1,0 +1,558 @@
+/* ==========================================
+   HISTORY PAGE
+========================================== */
+
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+
+.history-header{
+
+    padding:140px 0 90px;
+
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+
+
+.history-header h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.history-header p{
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   HISTORY SECTION
+========================================== */
+
+
+.history-section{
+
+    padding:100px 0;
+
+    background:#f8f9fc;
+
+}
+
+
+
+
+.history-card{
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+
+.history-title{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.history-title h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1d3557;
+
+}
+
+
+
+.history-title p{
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+
+.history-table{
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+
+
+.history-table thead{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+}
+
+
+
+.history-table th{
+
+    padding:18px;
+
+    font-weight:600;
+
+}
+
+
+
+.history-table td{
+
+    padding:18px;
+
+    vertical-align:middle;
+
+    color:#555;
+
+}
+
+
+
+.history-table tbody tr{
+
+    transition:.3s;
+
+}
+
+
+
+.history-table tbody tr:hover{
+
+    background:#f8f9fc;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   NEWS TEXT
+========================================== */
+
+
+.news-text{
+
+    max-width:350px;
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   RESULT BADGES
+========================================== */
+
+
+.fake-badge{
+
+    background:#dc3545;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+
+
+.real-badge{
+
+    background:#198754;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   CONFIDENCE BAR
+========================================== */
+
+
+.progress{
+
+    height:25px;
+
+    width:160px;
+
+    background:#e9ecef;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.progress-bar{
+
+    background:linear-gradient(
+        90deg,
+        #0d6efd,
+        #4f8cff
+    );
+
+    font-size:13px;
+
+    font-weight:600;
+
+    line-height:25px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   EMPTY HISTORY
+========================================== */
+
+
+.empty-history{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+
+
+.empty-history i{
+
+    font-size:80px;
+
+    color:#0d6efd;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.empty-history h3{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#1d3557;
+
+}
+
+
+
+.empty-history p{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+
+.history-cta{
+
+    padding:90px 0;
+
+    background:linear-gradient(135deg,#0d6efd,#3f7dfc);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+
+
+.history-cta h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.history-cta p{
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.history-cta .btn{
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+
+.history-card{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+@keyframes fadeUp{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+
+@media(max-width:991px){
+
+
+    .history-header h1{
+
+        font-size:42px;
+
+    }
+
+
+    .history-card{
+
+        padding:30px;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+    .history-header{
+
+        padding-top:120px;
+
+    }
+
+
+
+    .history-header h1{
+
+        font-size:34px;
+
+    }
+
+
+
+    .history-title h2{
+
+        font-size:30px;
+
+    }
+
+
+
+    .history-cta h2{
+
+        font-size:32px;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:576px){
+
+
+    .history-header h1{
+
+        font-size:28px;
+
+    }
+
+
+
+    .history-header p{
+
+        font-size:16px;
+
+    }
+
+
+
+    .history-card{
+
+        padding:20px;
+
+    }
+
+
+
+    .history-table{
+
+        font-size:14px;
+
+    }
+
+
+
+    .progress{
+
+        width:120px;
+
+    }
+
+
+}

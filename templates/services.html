@@ -1,0 +1,610 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Services | Fake News Detector AI
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/services.css') }}">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- ==========================================
+                PAGE HEADER
+========================================== -->
+
+<section class="services-header">
+
+    <div class="container text-center">
+
+        <h1>
+            AI-Powered Fake News Detection Services
+        </h1>
+
+        <p>
+            Advanced Artificial Intelligence and Machine Learning
+            solutions to identify misinformation and protect digital trust.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- ==========================================
+                AI SERVICES
+========================================== -->
+
+
+<section class="services-section">
+
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Our AI Services
+            </h2>
+
+            <p>
+                Powerful features designed to analyze, verify and detect
+                fake information using modern AI technologies.
+            </p>
+
+        </div>
+
+
+
+        <div class="row g-4">
+
+
+
+            <!-- SERVICE 1 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    <h4>
+                        Fake News Detection
+                    </h4>
+
+                    <p>
+                        Our Machine Learning model analyzes news content
+                        and predicts whether information is real or fake.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SERVICE 2 -->
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    <h4>
+                        NLP Text Analysis
+                    </h4>
+
+                    <p>
+                        Natural Language Processing techniques extract
+                        meaningful patterns from news text.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- SERVICE 3 -->
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h4>
+                        Confidence Score
+                    </h4>
+
+                    <p>
+                        Get prediction confidence percentage along with
+                        the final AI detection result.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- SERVICE 4 -->
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h4>
+                        Content Verification
+                    </h4>
+
+                    <p>
+                        Helps users verify information before sharing it
+                        across digital platforms.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================================
+                USER FEATURES
+========================================== -->
+
+
+<section class="feature-service-section">
+
+
+<div class="container">
+
+
+<div class="section-title">
+
+
+<h2>
+User Features
+</h2>
+
+
+<p>
+Secure and personalized experience for every registered user.
+</p>
+
+
+</div>
+
+
+
+
+<div class="row g-4">
+
+
+
+<div class="col-lg-4">
+
+
+<div class="feature-service-card">
+
+
+<i class="fa-solid fa-user-shield"></i>
+
+
+<h4>
+Secure Authentication
+</h4>
+
+
+<p>
+User registration and login system with encrypted password storage
+for secure access.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-lg-4">
+
+
+<div class="feature-service-card">
+
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+
+<h4>
+Prediction History
+</h4>
+
+
+<p>
+Users can view previously analyzed news and track their detection
+activities.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-lg-4">
+
+
+<div class="feature-service-card">
+
+
+<i class="fa-solid fa-user"></i>
+
+
+<h4>
+Personal Dashboard
+</h4>
+
+
+<p>
+Manage profile details and access AI detection services from one place.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================================
+                ADMIN FEATURES
+========================================== -->
+
+
+<section class="admin-service-section">
+
+
+<div class="container">
+
+
+<div class="section-title">
+
+
+<h2>
+Admin Capabilities
+</h2>
+
+
+<p>
+Powerful monitoring tools for system administrators.
+</p>
+
+
+</div>
+
+
+
+
+<div class="row g-4">
+
+
+
+<div class="col-md-4">
+
+
+<div class="admin-card">
+
+
+<i class="fa-solid fa-users-gear"></i>
+
+
+<h4>
+User Management
+</h4>
+
+
+<p>
+View and manage registered users through the admin dashboard.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="admin-card">
+
+
+<i class="fa-solid fa-chart-pie"></i>
+
+
+<h4>
+Analytics Dashboard
+</h4>
+
+
+<p>
+Monitor system activities, users and AI prediction statistics.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="admin-card">
+
+
+<i class="fa-solid fa-list-check"></i>
+
+
+<h4>
+Activity Monitoring
+</h4>
+
+
+<p>
+Track detection activities and maintain platform reliability.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                FUTURE FEATURES
+========================================== -->
+
+
+<section class="future-section">
+
+
+<div class="container">
+
+
+<div class="section-title">
+
+
+<h2>
+Future AI Enhancements
+</h2>
+
+
+<p>
+Upcoming intelligent features to improve misinformation detection.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="future-box">
+
+
+<div class="future-item">
+
+<i class="fa-solid fa-link"></i>
+
+<span>
+URL News Verification
+</span>
+
+</div>
+
+
+
+<div class="future-item">
+
+<i class="fa-solid fa-image"></i>
+
+<span>
+OCR Image Detection
+</span>
+
+</div>
+
+
+
+
+<div class="future-item">
+
+<i class="fa-solid fa-microphone"></i>
+
+<span>
+Audio News Analysis
+</span>
+
+</div>
+
+
+
+
+<div class="future-item">
+
+<i class="fa-solid fa-video"></i>
+
+<span>
+Video News Detection
+</span>
+
+</div>
+
+
+
+
+<div class="future-item">
+
+<i class="fa-solid fa-comments"></i>
+
+<span>
+AI Chatbot Assistant
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                CTA SECTION
+========================================== -->
+
+
+<section class="services-cta">
+
+
+<div class="container text-center">
+
+
+<h2>
+Start Detecting Fake News Today
+</h2>
+
+
+<p>
+Use AI-powered technology to verify information and fight misinformation.
+</p>
+
+
+
+{% if session.get("user_id") %}
+
+
+<a href="{{ url_for('detector.detector') }}"
+class="btn btn-light btn-lg">
+
+Detect News
+
+</a>
+
+
+{% else %}
+
+
+<a href="{{ url_for('auth.register') }}"
+class="btn btn-light btn-lg">
+
+Create Account
+
+</a>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+</section>
+
+
+
+{% endblock %}

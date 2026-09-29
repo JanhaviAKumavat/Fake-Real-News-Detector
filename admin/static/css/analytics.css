@@ -1,0 +1,742 @@
+/* =====================================================
+   Fake News Detector AI
+   Admin Analytics Dashboard CSS
+===================================================== */
+
+
+
+/* ===============================
+   Main Container
+================================ */
+
+
+.analytics-container {
+
+    width:100%;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   Page Header
+================================ */
+
+
+.page-header {
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.page-header h1 {
+
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+.page-header p {
+
+
+    color:#64748b;
+
+    margin:0;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   Button
+================================ */
+
+
+.admin-btn {
+
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    font-weight:500;
+
+
+}
+
+
+
+.admin-btn-primary {
+
+
+    background:#2563eb;
+
+    color:white;
+
+
+}
+
+
+
+.admin-btn-primary:hover {
+
+
+    background:#1d4ed8;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Summary Cards
+================================ */
+
+
+.analytics-summary {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+
+.analytics-card {
+
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.06);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.analytics-card:hover {
+
+
+    transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+
+.analytics-icon {
+
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:14px;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+
+}
+
+
+
+
+
+
+.analytics-icon.blue {
+
+
+    background:#2563eb;
+
+
+}
+
+
+
+.analytics-icon.red {
+
+
+    background:#dc2626;
+
+
+}
+
+
+
+.analytics-icon.green {
+
+
+    background:#16a34a;
+
+
+}
+
+
+
+.analytics-icon.purple {
+
+
+    background:#9333ea;
+
+
+}
+
+
+
+
+
+
+
+
+.analytics-card h3 {
+
+
+    font-size:28px;
+
+    margin:0;
+
+    color:#0f172a;
+
+
+}
+
+
+
+
+.analytics-card p {
+
+
+    margin-top:5px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Chart Grid
+================================ */
+
+
+.analytics-grid {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+
+.analytics-box {
+
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.06);
+
+
+}
+
+
+
+
+
+
+
+
+.box-header {
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.box-header h4 {
+
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#0f172a;
+
+
+}
+
+
+
+
+
+
+
+
+.analytics-box canvas {
+
+
+    width:100% !important;
+
+    height:300px !important;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Performance Section
+================================ */
+
+
+.performance-box {
+
+
+    min-height:300px;
+
+
+}
+
+
+
+
+.performance-item {
+
+
+    display:grid;
+
+    grid-template-columns:120px 1fr 50px;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+.performance-item span {
+
+
+    font-weight:500;
+
+    color:#475569;
+
+
+}
+
+
+
+
+.performance-item strong {
+
+
+    color:#0f172a;
+
+}
+
+
+
+
+
+
+
+
+.performance-progress {
+
+
+    height:10px;
+
+    background:#e2e8f0;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+
+.performance-bar {
+
+
+    height:100%;
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   System Insights
+================================ */
+
+
+.activity-box {
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+.insight-list {
+
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+
+}
+
+
+
+
+
+
+
+.insight-list li {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px;
+
+    border-bottom:1px solid #e2e8f0;
+
+    color:#475569;
+
+
+}
+
+
+
+
+
+.insight-list li:last-child {
+
+
+    border-bottom:none;
+
+
+}
+
+
+
+
+
+.insight-list i {
+
+
+    color:#2563eb;
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+
+@media(max-width:1200px){
+
+
+
+.analytics-summary {
+
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:992px){
+
+
+
+.analytics-grid {
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+.page-header {
+
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+
+}
+
+
+
+
+
+.analytics-summary {
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+
+.performance-item {
+
+
+grid-template-columns:1fr;
+
+
+gap:8px;
+
+
+}
+
+
+
+
+
+.analytics-box canvas {
+
+
+height:250px !important;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:480px){
+
+
+
+.analytics-card {
+
+
+padding:18px;
+
+
+}
+
+
+
+.analytics-box {
+
+
+padding:18px;
+
+
+}
+
+
+
+}

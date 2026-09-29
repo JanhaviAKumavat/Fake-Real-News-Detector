@@ -1,0 +1,513 @@
+/* ==========================================
+   Fake News Detector AI - Admin Layout CSS
+   ========================================== */
+
+
+/* Google Font fallback */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    overflow-x: hidden;
+
+}
+
+
+
+/* ==========================================
+   Main Admin Wrapper
+   ========================================== */
+
+
+.admin-wrapper {
+
+
+    display: flex;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+}
+
+
+
+/* ==========================================
+   Main Container
+   ========================================== */
+
+
+.admin-main {
+
+
+    flex: 1;
+
+    margin-left: 260px;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+
+
+/* ==========================================
+   Content Area
+   ========================================== */
+
+
+.admin-content {
+
+
+    flex: 1;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    min-height: calc(100vh - 70px);
+
+}
+
+
+
+
+
+/* ==========================================
+   Common Card Design
+   ========================================== */
+
+
+.admin-card {
+
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+
+    transition: all 0.3s ease;
+
+
+}
+
+
+
+
+.admin-card:hover {
+
+
+    transform: translateY(-5px);
+
+
+    box-shadow:
+
+        0 12px 30px rgba(15, 23, 42, 0.12);
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+
+.admin-btn {
+
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+
+}
+
+
+
+.admin-btn-primary {
+
+
+    background: #2563eb;
+
+    color: white;
+
+
+}
+
+
+
+.admin-btn-primary:hover {
+
+
+    background: #1d4ed8;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Page Header
+   ========================================== */
+
+
+.page-header {
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+
+}
+
+
+
+
+.page-header h1 {
+
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    color: #0f172a;
+
+
+}
+
+
+
+
+
+.page-header p {
+
+
+    color: #64748b;
+
+    font-size: 14px;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Tables
+   ========================================== */
+
+
+.admin-table {
+
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border-collapse: collapse;
+
+
+}
+
+
+
+.admin-table th {
+
+
+    background: #f1f5f9;
+
+    padding: 14px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+
+}
+
+
+
+.admin-table td {
+
+
+    padding: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    font-size: 14px;
+
+
+}
+
+
+
+.admin-table tr:hover {
+
+
+    background: #f8fafc;
+
+
+}
+
+
+
+
+
+/* ==========================================
+   Scrollbar
+   ========================================== */
+
+
+::-webkit-scrollbar {
+
+
+    width: 8px;
+
+
+}
+
+
+
+::-webkit-scrollbar-track {
+
+
+    background: #f1f5f9;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+
+    background: #94a3b8;
+
+    border-radius: 10px;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover {
+
+
+    background: #64748b;
+
+
+}
+
+
+
+
+/* ==========================================
+   Animations
+   ========================================== */
+
+
+.fade-in {
+
+
+    animation: fadeIn 0.5s ease-in-out;
+
+
+}
+
+
+
+@keyframes fadeIn {
+
+
+    from {
+
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+
+    }
+
+
+    to {
+
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+/* ==========================================
+   Sidebar Collapse State
+   ========================================== */
+
+
+.admin-wrapper.sidebar-collapsed 
+.admin-main {
+
+
+    margin-left: 80px;
+
+
+}
+
+/* ==========================================
+   Admin Footer
+========================================== */
+
+.admin-footer {
+
+    width: 100%;
+
+    padding: 15px 25px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+/* Footer Container */
+
+.admin-footer .footer-left,
+.admin-footer .footer-right {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+/* Combine Both Sections */
+
+.admin-footer {
+
+    gap: 30px;
+
+}
+
+
+
+/* Left Text */
+
+.admin-footer .footer-left p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+
+    font-weight: 500;
+
+}
+
+
+
+/* Right Text */
+
+.admin-footer .footer-right {
+
+    font-size: 14px;
+
+    color: #6b7280;
+
+}
+
+
+.admin-footer .footer-right strong {
+
+    margin-left: 5px;
+
+    color: #2563eb;
+
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .admin-footer {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align:center;
+
+    }
+
+}

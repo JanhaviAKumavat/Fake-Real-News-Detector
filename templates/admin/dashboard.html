@@ -1,0 +1,526 @@
+{% extends "layout.html" %}
+
+
+
+{% block title %}
+
+Admin Dashboard | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+{% block css %}
+
+
+<link rel="stylesheet"
+
+href="{{ url_for('static', filename='css/admin.css') }}">
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ==========================================
+                ADMIN HEADER
+========================================== -->
+
+
+<section class="admin-header">
+
+
+<div class="container">
+
+
+<div class="admin-title">
+
+
+<h1>
+
+Admin Dashboard
+
+</h1>
+
+
+<p>
+
+Monitor users, predictions and AI detection activity.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+<!-- ==========================================
+                KPI CARDS
+========================================== -->
+
+
+<section class="admin-dashboard-section">
+
+
+<div class="container">
+
+
+
+<div class="row g-4">
+
+<div class="col-lg-3 col-md-6">
+
+
+<div class="admin-card">
+
+
+<div class="admin-icon">
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+
+<h2>
+
+{{ stats.users }}
+
+</h2>
+
+
+<p>
+
+Total Users
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+
+<div class="admin-card">
+
+
+<div class="admin-icon">
+
+<i class="fa-solid fa-newspaper"></i>
+
+</div>
+
+
+<h2>
+
+{{ stats.predictions }}
+
+</h2>
+
+
+<p>
+
+Total Predictions
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+
+<div class="admin-card fake-card">
+
+
+<div class="admin-icon">
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+</div>
+
+
+<h2>
+
+{{ stats.fake }}
+
+</h2>
+
+
+<p>
+
+Fake News Detected
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+
+<div class="admin-card real-card">
+
+
+<div class="admin-icon">
+
+<i class="fa-solid fa-circle-check"></i>
+
+</div>
+
+
+<h2>
+
+{{ stats.real }}
+
+</h2>
+
+
+<p>
+
+Real News Detected
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ==========================================
+                ADMIN ACTIONS
+========================================== -->
+
+
+<div class="admin-actions">
+
+
+
+<a href="{{ url_for('admin.users') }}"
+
+class="btn btn-primary">
+
+
+<i class="fa-solid fa-users"></i>
+
+
+Manage Users
+
+
+</a>
+
+
+
+
+<a href="{{ url_for('home.home') }}"
+
+class="btn btn-outline-primary">
+
+
+<i class="fa-solid fa-house"></i>
+
+
+Back To Website
+
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ==========================================
+                RECENT ACTIVITY
+========================================== -->
+
+
+<div class="activity-card">
+
+
+
+<div class="section-title">
+
+
+<h2>
+
+Recent Detection Activity
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+{% if recent_activity %}
+
+
+
+<div class="table-responsive">
+
+
+
+<table class="table admin-table">
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+User
+
+</th>
+
+
+<th>
+
+Prediction
+
+</th>
+
+
+<th>
+
+Confidence
+
+</th>
+
+
+<th>
+
+Date
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+
+
+{% for item in recent_activity %}
+
+
+
+
+<tr>
+
+
+
+<td>
+
+{{ item.full_name }}
+
+</td>
+
+
+
+
+
+<td>
+
+
+{% if item.prediction == "Fake News" %}
+
+
+
+<span class="fake-badge">
+
+Fake News
+
+</span>
+
+
+
+{% else %}
+
+
+
+<span class="real-badge">
+
+Real News
+
+</span>
+
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+
+<td>
+
+{{ item.confidence }}%
+
+</td>
+
+
+
+
+
+
+<td>
+
+{{ item.created_at }}
+
+</td>
+
+
+
+
+
+</tr>
+
+
+
+
+{% endfor %}
+
+
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+{% else %}
+
+
+
+<div class="empty-admin">
+
+
+<i class="fa-solid fa-chart-line"></i>
+
+
+<h4>
+
+No Activity Available
+
+</h4>
+
+
+<p>
+
+Prediction activity will appear here.
+
+</p>
+
+
+</div>
+
+
+
+{% endif %}
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+{% endblock %}

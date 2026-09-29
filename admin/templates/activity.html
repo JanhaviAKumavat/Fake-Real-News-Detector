@@ -1,0 +1,527 @@
+{% extends "admin/admin_layout.html" %}
+
+
+{% block title %}
+
+Admin Activity
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="activity-container">
+
+
+
+
+
+    <!-- Page Header -->
+
+    <div class="page-header">
+
+
+        <div>
+
+
+            <h1>
+
+                Activity Timeline
+
+            </h1>
+
+
+            <p>
+
+                Monitor all system and user activities.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="activity-actions">
+
+
+            <button class="activity-btn"
+                    id="refreshActivityBtn">
+
+
+                <i class="fa-solid fa-rotate"></i>
+
+
+                Refresh
+
+
+            </button>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Activity Summary -->
+
+
+    <div class="activity-summary">
+
+
+
+        <div class="summary-card">
+
+
+            <div class="summary-icon">
+
+
+                <i class="fa-solid fa-users"></i>
+
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+
+                    {{ total_users if total_users else 0 }}
+
+                </h3>
+
+
+                <p>
+
+                    User Activities
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="summary-card">
+
+
+            <div class="summary-icon">
+
+
+                <i class="fa-solid fa-robot"></i>
+
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+
+                    {{ total_predictions if total_predictions else 0 }}
+
+                </h3>
+
+
+                <p>
+
+                    AI Predictions
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="summary-card">
+
+
+            <div class="summary-icon">
+
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+
+                    {{ total_logins if total_logins else 0 }}
+
+                </h3>
+
+
+                <p>
+
+                    Login Events
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="summary-card">
+
+
+            <div class="summary-icon">
+
+
+                <i class="fa-solid fa-database"></i>
+
+
+            </div>
+
+
+            <div>
+
+
+                <h3>
+
+                    System
+
+                </h3>
+
+
+                <p>
+
+                    Active
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Activity Timeline -->
+
+
+
+    <div class="timeline-card">
+
+
+
+        <div class="timeline-header">
+
+
+            <h2>
+
+                Recent Activities
+
+            </h2>
+
+
+
+            <select id="activityFilter"
+                    class="activity-filter">
+
+
+                <option value="">
+
+                    All Activities
+
+                </option>
+
+
+                <option value="login">
+
+                    Login
+
+                </option>
+
+
+                <option value="prediction">
+
+                    Prediction
+
+                </option>
+
+
+                <option value="system">
+
+                    System
+
+                </option>
+
+
+
+            </select>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="timeline">
+
+
+
+
+
+        {% if activities %}
+
+
+
+            {% for activity in activities %}
+
+
+
+            <div class="timeline-item">
+
+
+
+                <div class="timeline-icon">
+
+
+                    {% if activity.type == "login" %}
+
+
+                    <i class="fa-solid fa-user"></i>
+
+
+
+                    {% elif activity.type == "prediction" %}
+
+
+
+                    <i class="fa-solid fa-brain"></i>
+
+
+
+                    {% else %}
+
+
+
+                    <i class="fa-solid fa-gear"></i>
+
+
+
+                    {% endif %}
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="timeline-content">
+
+
+
+                    <div class="timeline-top">
+
+
+                        <h3>
+
+
+                            {{ activity.title }}
+
+
+                        </h3>
+
+
+
+                        <span class="activity-time">
+
+
+                            {{ activity.created_at }}
+
+
+                        </span>
+
+
+                    </div>
+
+
+
+
+
+
+                    <p>
+
+
+                        {{ activity.description }}
+
+
+                    </p>
+
+
+
+
+
+
+                    <span class="activity-status 
+                    
+                    {{ activity.status }}">
+
+
+
+                        {{ activity.status }}
+
+
+
+                    </span>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            {% endfor %}
+
+
+
+
+
+
+
+        {% else %}
+
+
+
+            <div class="empty-state">
+
+
+                <i class="fa-solid fa-clock"></i>
+
+
+                <h3>
+
+                    No Activity Found
+
+                </h3>
+
+
+                <p>
+
+                    Recent system activities will appear here.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+        {% endif %}
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block scripts %}
+
+
+<script src="{{ url_for(
+'admin.static',
+filename='js/activity.js'
+) }}"></script>
+
+
+{% endblock %}

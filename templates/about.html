@@ -1,0 +1,228 @@
+{% extends "layout.html" %}
+
+{% block title %}
+About | Fake News Detector AI
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+                PAGE HEADER
+========================================== -->
+
+<section class="about-header">
+
+    <div class="container text-center">
+
+        <h1>About Fake News Detector AI</h1>
+
+        <p>
+
+            Fighting misinformation using Artificial Intelligence,
+            Machine Learning and Natural Language Processing.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                ABOUT PROJECT
+========================================== -->
+
+<section class="about-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <img src="{{ url_for('static',
+                filename='images/about.jpeg') }}"
+                class="img-fluid about-image"
+                alt="About AI">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <h2>Our Project</h2>
+
+                <p>
+
+                    Fake News Detector AI is an intelligent web application
+                    that identifies whether a news article is genuine or fake
+                    using Machine Learning algorithms.
+
+                </p>
+
+                <p>
+
+                    The system analyzes textual information, extracts
+                    meaningful features using Natural Language Processing
+                    (NLP), and predicts the authenticity of the news with
+                    high confidence.
+
+                </p>
+
+                <p>
+
+                    Our goal is to help people verify information before
+                    believing or sharing misleading content online.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                OUR MISSION
+========================================== -->
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Mission</h2>
+
+            <p>
+
+                Empower people with trustworthy AI-powered fact verification.
+
+            </p>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                    <h4>Accuracy</h4>
+
+                    <p>
+
+                        Deliver reliable predictions using trained Machine
+                        Learning models.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h4>Trust</h4>
+
+                    <p>
+
+                        Help users make informed decisions by identifying
+                        misinformation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <h4>Community</h4>
+
+                    <p>
+
+                        Create a safer digital environment by reducing the
+                        spread of fake news.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+                CTA
+========================================== -->
+
+<section class="about-cta">
+
+    <div class="container text-center">
+
+        <h2>
+
+            Ready to Detect Fake News?
+
+        </h2>
+
+        <p>
+
+            Create an account and start using AI-powered fake news detection.
+
+        </p>
+
+        {% if session.get("user_id") %}
+
+        <a href="{{ url_for('detector.detector') }}"
+           class="btn btn-light btn-lg">
+
+            Detect News
+
+        </a>
+
+        {% else %}
+
+        <a href="{{ url_for('auth.register') }}"
+           class="btn btn-light btn-lg">
+
+            Register Now
+
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

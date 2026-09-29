@@ -1,0 +1,765 @@
+{% extends "admin_layout.html" %}
+
+
+
+
+{% block title %}
+
+Users Management | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+
+{% block extra_css %}
+
+
+<link rel="stylesheet"
+
+href="{{ url_for('admin.static',
+filename='css/users.css') }}">
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block page_title %}
+
+User Management
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="users-container">
+
+
+
+
+
+
+
+<!-- =====================================
+     Page Header
+===================================== -->
+
+
+<div class="page-header">
+
+
+
+    <div>
+
+
+        <h1>
+
+            Users Management
+
+        </h1>
+
+
+
+        <p>
+
+            Manage registered users of Fake News Detector AI
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+    <div>
+
+
+        <button type="button" class="admin-btn admin-btn-primary" id="openAddUserBtn">
+
+
+            <i class="fa-solid fa-user-plus"></i>
+
+
+            Add User
+
+
+        </button>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     User Statistics
+===================================== -->
+
+
+<div class="user-summary">
+
+
+
+
+
+<div class="summary-card">
+
+
+    <i class="fa-solid fa-users"></i>
+
+
+    <div>
+
+
+        <h3>
+
+            {{ users|length }}
+
+        </h3>
+
+
+        <p>
+
+            Total Users
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="summary-card">
+
+
+    <i class="fa-solid fa-user-shield"></i>
+
+
+    <div>
+
+
+        <h3>
+
+            {{ users | selectattr("role","equalto","admin") | list | length }}
+
+        </h3>
+
+
+        <p>
+
+            System Administrators
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="summary-card">
+
+
+    <i class="fa-solid fa-user-check"></i>
+
+
+    <div>
+
+
+        <h3>
+
+            {{ users | selectattr("role","equalto","user") | list | length }}
+
+        </h3>
+
+
+        <p>
+
+            Registered Accounts
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Search Section
+===================================== -->
+
+
+<div class="admin-card users-table-card">
+
+
+
+<div class="table-header">
+
+
+
+<h5>
+
+All Users
+
+</h5>
+
+
+
+
+<div class="table-search">
+
+
+<input type="text"
+id="userSearch"
+placeholder="Search users...">
+
+
+
+<i class="fa-solid fa-search"></i>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Users Table
+===================================== -->
+
+
+<div class="table-responsive">
+
+
+
+<table class="table users-table"
+id="usersTable">
+
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+#
+</th>
+
+
+<th>
+Name
+</th>
+
+
+<th>
+Email
+</th>
+
+
+<th>
+Role
+</th>
+
+
+<th>
+Created Date
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+
+<tbody>
+
+
+
+{% if users %}
+
+
+
+{% for user in users %}
+
+
+
+<tr
+data-id="{{ user.id }}"
+data-name="{{ user.full_name }}"
+data-email="{{ user.email }}"
+data-role="{{ user.role }}"
+data-created="{{ user.created_at }}"
+>
+
+
+<td>
+
+{{ loop.index }}
+
+</td>
+
+
+
+
+<td>
+
+
+<div class="user-name">
+
+
+<div class="user-avatar">
+
+
+{{ user.full_name[0]|upper }}
+
+
+</div>
+
+
+<span>
+
+{{ user.full_name }}
+
+</span>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+<td>
+
+{{ user.email }}
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+
+
+{% if user.role == "admin" %}
+
+
+<span class="role-admin">
+
+Admin
+
+</span>
+
+
+
+{% else %}
+
+
+<span class="role-user">
+
+User
+
+</span>
+
+
+
+{% endif %}
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+{{ user.created_at }}
+
+</td>
+
+
+
+
+
+
+
+
+
+<td>
+
+
+
+<div class="action-buttons">
+
+
+
+<a href="#"
+class="view-btn"
+title="View User">
+
+
+<i class="fa-solid fa-eye"></i>
+
+
+</a>
+
+
+
+
+
+
+<a href="#"
+class="edit-btn"
+title="Edit User">
+
+
+<i class="fa-solid fa-pen"></i>
+
+
+</a>
+
+
+
+
+
+
+
+<a href="#"
+class="delete-btn"
+title="Delete User"
+data-delete-url="{{ url_for('admin.delete_user', user_id=user.id) }}">
+
+
+<i class="fa-solid fa-trash"></i>
+
+
+</a>
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+{% endfor %}
+
+
+
+
+
+{% else %}
+
+
+
+<tr>
+
+
+<td colspan="6"
+class="text-center">
+
+
+<div class="empty-data">
+
+
+<i class="fa-solid fa-users-slash"></i>
+
+
+<p>
+
+No users found
+
+</p>
+
+
+</div>
+
+
+</td>
+
+
+</tr>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<!-- ===================== VIEW USER MODAL ===================== -->
+
+<div class="modal-overlay" id="viewUserModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h5>User Details</h5>
+            <button type="button" class="modal-close" data-close="viewUserModal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="view-row"><span>Name</span><strong id="viewName"></strong></div>
+            <div class="view-row"><span>Email</span><strong id="viewEmail"></strong></div>
+            <div class="view-row"><span>Role</span><strong id="viewRole"></strong></div>
+            <div class="view-row"><span>Joined</span><strong id="viewCreated"></strong></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===================== EDIT USER MODAL ===================== -->
+
+<div class="modal-overlay" id="editUserModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h5>Edit User</h5>
+            <button type="button" class="modal-close" data-close="editUserModal">&times;</button>
+        </div>
+
+        <form id="editUserForm" method="POST">
+
+            <div class="modal-body">
+
+                <label>Full Name
+                    <input type="text" name="full_name" id="editName" required>
+                </label>
+
+                <label>Email
+                    <input type="email" name="email" id="editEmail" required>
+                </label>
+
+                <label>Role
+                    <select name="role" id="editRole">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="admin-btn" data-close="editUserModal">Cancel</button>
+                <button type="submit" class="admin-btn admin-btn-primary">Save Changes</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===================== ADD USER MODAL ===================== -->
+
+<div class="modal-overlay" id="addUserModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h5>Add New User</h5>
+            <button type="button" class="modal-close" data-close="addUserModal">&times;</button>
+        </div>
+
+        <form action="{{ url_for('admin.add_user') }}" method="POST">
+
+            <div class="modal-body">
+
+                <label>Full Name
+                    <input type="text" name="full_name" required>
+                </label>
+
+                <label>Email
+                    <input type="email" name="email" required>
+                </label>
+
+                <label>Password
+                    <input type="password" name="password" required>
+                </label>
+
+                <label>Role
+                    <select name="role">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="admin-btn" data-close="addUserModal">Cancel</button>
+                <button type="submit" class="admin-btn admin-btn-primary">Add User</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block extra_js %}
+
+
+<script src="{{ url_for('admin.static',
+filename='js/users.js') }}"></script>
+
+
+{% endblock %}

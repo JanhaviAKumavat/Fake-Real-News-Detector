@@ -1,0 +1,393 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Contact | Fake News Detector AI
+{% endblock %}
+
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/contact.css') }}">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<!-- ==========================================
+                PAGE HEADER
+========================================== -->
+
+
+<section class="contact-header">
+
+
+    <div class="container text-center">
+
+
+        <h1>
+            Contact Us
+        </h1>
+
+
+        <p>
+            Have questions, suggestions or feedback?
+            Our team is here to help you.
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================================
+                CONTACT SECTION
+========================================== -->
+
+
+<section class="contact-section">
+
+
+<div class="container">
+
+
+<div class="row align-items-center g-5">
+
+
+
+
+
+<!-- CONTACT INFORMATION -->
+
+
+<div class="col-lg-5">
+
+
+<div class="contact-info">
+
+
+<h2>
+Get In Touch
+</h2>
+
+
+<p>
+
+We would love to hear from you.
+Share your feedback, report issues,
+or ask questions about our AI-powered
+fake news detection system.
+
+</p>
+
+
+
+
+<div class="contact-item">
+
+
+<i class="fa-solid fa-envelope"></i>
+
+
+<div>
+
+<h5>
+Email
+</h5>
+
+<p>
+support@fakenewsdetector.ai
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="contact-item">
+
+
+<i class="fa-solid fa-location-dot"></i>
+
+
+<div>
+
+<h5>
+Location
+</h5>
+
+<p>
+India
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="contact-item">
+
+
+<i class="fa-solid fa-clock"></i>
+
+
+<div>
+
+<h5>
+Working Hours
+</h5>
+
+<p>
+Monday - Friday | 9 AM - 6 PM
+</p>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- CONTACT FORM -->
+
+
+<div class="col-lg-7">
+
+
+<div class="contact-form">
+
+
+<h2>
+Send Message
+</h2>
+
+
+
+<form action="{{ url_for('contact.contact') }}"
+      method="POST">
+
+
+
+
+
+<div class="row">
+
+
+
+<div class="col-md-6">
+
+
+<div class="form-group">
+
+
+<label>
+Full Name
+</label>
+
+
+<input type="text"
+       name="name"
+       class="form-control"
+       placeholder="Enter your name"
+       required>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-6">
+
+
+<div class="form-group">
+
+
+<label>
+Email Address
+</label>
+
+
+<input type="email"
+       name="email"
+       class="form-control"
+       placeholder="Enter your email"
+       required>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Subject
+</label>
+
+
+<input type="text"
+       name="subject"
+       class="form-control"
+       placeholder="Enter subject"
+       required>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Message
+</label>
+
+
+<textarea name="message"
+          rows="5"
+          class="form-control"
+          placeholder="Write your message..."
+          required></textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<button type="submit"
+        class="btn btn-primary contact-btn">
+
+
+Send Message
+
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- ==========================================
+                CTA
+========================================== -->
+
+
+<section class="contact-cta">
+
+
+<div class="container text-center">
+
+
+<h2>
+Let's Build A Safer Digital World
+</h2>
+
+
+<p>
+Together we can reduce misinformation using Artificial Intelligence.
+</p>
+
+
+<a href="{{ url_for('detector.detector') if session.get('user_id') else url_for('auth.register') }}"
+class="btn btn-light btn-lg">
+
+
+Start Detection
+
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+{% endblock %}

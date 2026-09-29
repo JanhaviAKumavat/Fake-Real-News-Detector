@@ -1,0 +1,394 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Prediction History | Fake News Detector AI
+{% endblock %}
+
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/history.css') }}">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<!-- ==========================================
+                PAGE HEADER
+========================================== -->
+
+
+<section class="history-header">
+
+
+<div class="container text-center">
+
+
+<h1>
+Prediction History
+</h1>
+
+
+<p>
+
+View your previous AI fake news detection results.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================================
+                HISTORY SECTION
+========================================== -->
+
+
+<section class="history-section">
+
+
+<div class="container">
+
+
+
+<div class="history-card">
+
+
+
+<div class="history-title">
+
+
+<h2>
+Your Detection Records
+</h2>
+
+
+<p>
+
+All previously analyzed news articles are shown below.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+{% if predictions %}
+
+
+
+<div class="table-responsive">
+
+
+<table class="table history-table">
+
+
+
+<thead>
+
+
+<tr>
+
+<th>
+#
+</th>
+
+
+<th>
+News Content
+</th>
+
+
+<th>
+Result
+</th>
+
+
+<th>
+Confidence
+</th>
+
+
+<th>
+Date
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody>
+
+
+
+{% for item in predictions %}
+
+
+
+<tr>
+
+
+<td>
+
+{{ loop.index }}
+
+</td>
+
+
+
+
+
+<td class="news-text">
+
+
+{{ item.news_text[:120] }}
+
+{% if item.news_text|length > 120 %}
+
+...
+
+{% endif %}
+
+
+</td>
+
+
+
+
+
+
+<td>
+
+
+{% if item.prediction == "Fake News" %}
+
+
+<span class="badge fake-badge">
+
+Fake News
+
+</span>
+
+
+
+{% else %}
+
+
+<span class="badge real-badge">
+
+Real News
+
+</span>
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+<div class="confidence-box">
+
+
+<div class="progress">
+
+
+<div class="progress-bar"
+
+style="width:{{ item.confidence }}%">
+
+
+{{ item.confidence }}%
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+<td>
+
+
+{{ item.created_at }}
+
+
+</td>
+
+
+
+
+</tr>
+
+
+
+{% endfor %}
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+
+{% else %}
+
+
+
+<div class="empty-history">
+
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+
+<h3>
+No Prediction History Found
+</h3>
+
+
+<p>
+
+You have not analyzed any news yet.
+
+Start detecting fake news using AI.
+
+</p>
+
+
+
+<a href="{{ url_for('detector.detector') }}"
+class="btn btn-primary">
+
+
+Detect News
+
+
+</a>
+
+
+
+</div>
+
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ==========================================
+                CTA
+========================================== -->
+
+
+<section class="history-cta">
+
+
+<div class="container text-center">
+
+
+<h2>
+
+Keep Verifying Information
+
+</h2>
+
+
+<p>
+
+AI helps you make better decisions before sharing news.
+
+</p>
+
+
+
+<a href="{{ url_for('detector.detector') }}"
+class="btn btn-light btn-lg">
+
+
+Analyze New Article
+
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+{% endblock %}

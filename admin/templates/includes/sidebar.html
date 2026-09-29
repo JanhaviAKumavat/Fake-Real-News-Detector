@@ -1,0 +1,420 @@
+<!-- ==========================================
+     Fake News Detector AI
+     Admin Sidebar
+========================================== -->
+
+
+<aside class="admin-sidebar" id="adminSidebar">
+
+
+
+
+
+    <!-- Logo Section -->
+
+    <div class="sidebar-logo">
+
+
+        <!-- <a href="{{ url_for('admin.dashboard') }}">
+
+
+            <div class="logo-icon">
+
+
+                <i class="fa-solid fa-newspaper"></i>
+
+
+            </div> -->
+         <a href="{{ url_for('admin.dashboard') }}">
+
+
+            <div class="logo-icon">
+
+
+                <img src="{{ url_for('admin.static', filename='images/logo.png') }}"
+                     alt="FakeNews Detector AI Logo">
+
+
+            </div>   
+
+
+
+            <div class="logo-text">
+
+
+                <h4>
+
+                    Fake vs Real News 
+
+                </h4>
+
+
+                <span>
+
+                    Detector AI
+
+                </span>
+
+
+            </div>
+
+
+        </a>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Menu -->
+
+
+    <nav class="sidebar-menu">
+
+
+
+
+
+        <ul>
+
+
+
+
+
+            <!-- Dashboard -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.dashboard') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.dashboard' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+
+                    <span>
+
+                        Dashboard
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Users -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.users') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.users' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-users"></i>
+
+
+                    <span>
+
+                        Users
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Predictions -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.predictions') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.predictions' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-brain"></i>
+
+
+                    <span>
+
+                        Predictions
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Messages -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.messages') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.messages' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-envelope"></i>
+
+
+                    <span>
+
+                        Messages
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Reports -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.reports') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.reports' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+
+                    <span>
+
+                        Reports
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Analytics -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.analytics') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.analytics' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+
+                    <span>
+
+                        Analytics
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Settings -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.settings') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.settings' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-gear"></i>
+
+
+                    <span>
+
+                        Settings
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+
+
+
+            <!-- Profile -->
+
+
+            <li>
+
+
+                <a href="{{ url_for('admin.profile') }}"
+                   class="menu-link
+                   {% if request.endpoint == 'admin.profile' %}
+                   active
+                   {% endif %}">
+
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+
+                    <span>
+
+                        Profile
+
+                    </span>
+
+
+                </a>
+
+
+            </li>
+
+
+
+
+
+
+        </ul>
+
+
+
+    </nav>
+
+
+
+
+
+
+
+
+
+    <!-- Bottom Logout -->
+
+
+    <div class="sidebar-footer">
+
+
+
+        <a href="{{ url_for('auth.logout') }}"
+           class="logout-link">
+
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+
+            <span>
+
+                Logout
+
+            </span>
+
+
+        </a>
+
+
+
+    </div>
+
+
+
+
+
+
+</aside>

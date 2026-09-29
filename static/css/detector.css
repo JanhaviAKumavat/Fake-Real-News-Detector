@@ -1,0 +1,613 @@
+/* ==========================================
+   DETECTOR PAGE
+========================================== */
+
+
+/* ==========================================
+   HEADER SECTION
+========================================== */
+
+.detector-header{
+
+    padding:140px 0 90px;
+
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+
+.detector-header h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+.detector-header p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   DETECTOR SECTION
+========================================== */
+
+
+.detector-section{
+
+    padding:100px 0;
+
+    background:#f8f9fc;
+
+}
+
+
+
+.detector-card{
+
+    background:#fff;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.detector-card h2{
+
+    text-align:center;
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1d3557;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+
+.form-group{
+
+    margin-bottom:25px;
+
+}
+
+
+.form-group label{
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    display:block;
+
+}
+
+
+
+.form-control{
+
+    border-radius:12px;
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+    resize:none;
+
+}
+
+
+
+.form-control:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:0 0 0 .2rem rgba(13,110,253,.15);
+
+}
+
+
+
+
+.detect-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+}
+
+
+
+
+
+/* ==========================================
+   LOADER
+========================================== */
+
+
+.loader-box{
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+
+.loader-box p{
+
+    margin-top:15px;
+
+    color:#666;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   RESULT SECTION
+========================================== */
+
+
+.result-section{
+
+    padding:60px 0;
+
+    background:#fff;
+
+}
+
+
+
+
+.result-card{
+
+    max-width:650px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.result-icon i{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.result-card h2{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.result-card p{
+
+    font-size:18px;
+
+    color:#666;
+
+}
+
+
+
+
+/* REAL RESULT */
+
+
+.real-result{
+
+    border-top:6px solid #198754;
+
+}
+
+
+
+.real-result .result-icon i{
+
+    color:#198754;
+
+}
+
+
+
+
+/* FAKE RESULT */
+
+
+.fake-result{
+
+    border-top:6px solid #dc3545;
+
+}
+
+
+
+.fake-result .result-icon i{
+
+    color:#dc3545;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   CONFIDENCE BAR
+========================================== */
+
+
+.progress{
+
+    height:30px;
+
+    border-radius:20px;
+
+    margin-top:25px;
+
+    background:#e9ecef;
+
+    overflow:hidden;
+
+}
+
+
+
+.progress-bar{
+
+    background:linear-gradient(
+        90deg,
+        #0d6efd,
+        #4f8cff
+    );
+
+    font-weight:600;
+
+    line-height:30px;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+
+.working-section{
+
+    padding:100px 0;
+
+    background:#f8f9fc;
+
+}
+
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+
+
+.section-title h2{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:#1d3557;
+
+}
+
+
+
+
+
+
+.work-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    text-align:center;
+
+    height:100%;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.work-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.work-card i{
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.work-card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.work-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+
+.detector-card,
+.result-card,
+.work-card{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+@keyframes fadeUp{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+
+@media(max-width:991px){
+
+
+    .detector-header h1{
+
+        font-size:42px;
+
+    }
+
+
+    .detector-card{
+
+        padding:35px;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+    .detector-header{
+
+        padding-top:120px;
+
+    }
+
+
+    .detector-header h1{
+
+        font-size:34px;
+
+    }
+
+
+    .detector-card h2{
+
+        font-size:30px;
+
+    }
+
+
+    .result-card h2{
+
+        font-size:32px;
+
+    }
+
+
+    .section-title h2{
+
+        font-size:32px;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:576px){
+
+
+    .detector-header h1{
+
+        font-size:28px;
+
+    }
+
+
+    .detector-header p{
+
+        font-size:16px;
+
+    }
+
+
+    .detector-card{
+
+        padding:25px;
+
+    }
+
+
+    .result-card{
+
+        padding:30px;
+
+    }
+
+
+}

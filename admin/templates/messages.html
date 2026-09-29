@@ -1,0 +1,720 @@
+{% extends "admin_layout.html" %}
+
+
+
+
+{% block title %}
+
+Contact Messages | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block extra_css %}
+
+
+<link rel="stylesheet" href="{{ url_for('admin.static',
+filename='css/messages.css') }}">
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block page_title %}
+
+Contact Messages
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="messages-container">
+
+
+
+
+
+
+
+    <!-- =====================================
+     Page Header
+===================================== -->
+
+
+    <div class="page-header">
+
+
+
+        <div>
+
+
+            <h1>
+
+                Contact Messages
+
+            </h1>
+
+
+            <p>
+
+                Manage user queries and feedback
+
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+     Message Summary
+===================================== -->
+
+
+    <div class="message-summary">
+    
+    
+    
+    
+    
+        <div class="message-card clickable" id="cardTotal" data-filter="all">
+    
+    
+            <div class="message-icon blue">
+    
+                <i class="fa-solid fa-envelope"></i>
+    
+            </div>
+    
+    
+            <div>
+    
+    
+                <h3>
+    
+                    {{ messages|length }}
+    
+                </h3>
+    
+    
+                <p>
+    
+                    Total Messages
+    
+                </p>
+    
+    
+            </div>
+    
+    
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <div class="message-card clickable" id="cardUnread" data-filter="new">
+    
+    
+            <div class="message-icon orange">
+    
+                <i class="fa-solid fa-envelope-open"></i>
+    
+            </div>
+    
+    
+            <div>
+    
+    
+                <h3 id="unreadCount">
+    
+                    {{ messages | selectattr("status","equalto","New") | list | length }}
+    
+                </h3>
+    
+    
+                <p>
+    
+                    Unread Messages
+    
+                </p>
+    
+    
+            </div>
+    
+    
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <div class="message-card clickable" id="cardPending" data-filter="pending">
+    
+    
+            <div class="message-icon green">
+    
+                <i class="fa-solid fa-reply"></i>
+    
+            </div>
+    
+    
+            <div>
+    
+    
+                <h3 id="pendingCount">
+    
+                    {{ messages | rejectattr("status","equalto","Replied") | list | length }}
+    
+                </h3>
+    
+    
+                <p>
+    
+                    Pending Responses
+    
+                </p>
+    
+    
+            </div>
+    
+    
+        </div>
+    
+    
+    
+    
+    
+    
+    </div>
+
+
+
+
+
+
+    <!-- =====================================
+     Messages Table
+===================================== -->
+
+
+    <div class="admin-card messages-table-card">
+
+
+
+
+
+        <div class="table-header">
+
+
+
+            <h5>
+
+                All Messages
+
+            </h5>
+
+
+
+
+
+
+            <div class="table-search">
+
+
+                <input type="text" id="messageSearch" placeholder="Search messages...">
+
+
+                <i class="fa-solid fa-search"></i>
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="table-responsive">
+
+
+
+
+
+            <table class="table messages-table" id="messagesTable">
+
+
+
+
+
+                <thead>
+
+
+                    <tr>
+
+
+
+                        <th>
+                            #
+                        </th>
+
+
+                        <th>
+                            Name
+                        </th>
+
+
+                        <th>
+                            Email
+                        </th>
+
+
+                        <th>
+                            Subject
+                        </th>
+
+
+                        <th>
+                            Message
+                        </th>
+
+
+                        <th>
+                            Status
+                        </th>
+
+
+                        <th>
+                            Date
+                        </th>
+
+
+                        <th>
+                            Action
+                        </th>
+
+
+
+                    </tr>
+
+
+                </thead>
+
+
+
+
+
+
+
+
+
+                <tbody>
+
+
+
+
+                    {% if messages %}
+
+
+
+
+
+
+                    {% for message in messages %}
+
+
+
+                    <tr data-id="{{ message.id }}" data-name="{{ message.name }}" data-email="{{ message.email }}"
+                        data-subject="{{ message.subject }}" data-message="{{ message.message }}"
+                        data-created="{{ message.created_at }}" data-status="{{ message.status }}">
+
+
+
+
+                        <td>
+
+                            {{ loop.index }}
+
+                        </td>
+
+
+
+
+
+
+                        <td>
+
+
+
+                            <div class="user-name">
+
+
+                                <div class="user-avatar">
+
+
+                                    {{ message.name[0]|upper }}
+
+
+                                </div>
+
+
+
+                                <span>
+
+                                    {{ message.name }}
+
+                                </span>
+
+
+                            </div>
+
+
+
+                        </td>
+
+
+
+
+
+
+
+
+                        <td>
+
+                            {{ message.email }}
+
+                        </td>
+
+
+
+
+
+
+
+
+
+                        <td>
+
+                            {{ message.subject }}
+
+                        </td>
+
+
+
+
+
+
+
+
+
+                        <td>
+
+
+                            <div class="message-preview">
+
+
+                                {{ message.message[:50] }}
+
+
+                                {% if message.message|length > 50 %}
+
+                                ...
+
+                                {% endif %}
+
+
+                            </div>
+
+
+                        </td>
+
+
+
+
+
+
+
+
+
+                        <td>
+
+
+                            <span class="status-badge status-{{ message.status|lower }}">
+
+                                {{ message.status }}
+
+                            </span>
+
+
+                        </td>
+
+
+
+
+
+
+
+
+
+                        <td>
+
+                            {{ message.created_at }}
+
+                        </td>
+
+
+
+
+
+
+
+
+
+                        <td>
+
+
+                            <div class="action-buttons">
+
+
+
+                                <a href="#" class="view-btn" title="View Message">
+
+
+                                    <i class="fa-solid fa-eye"></i>
+
+
+                                </a>
+
+
+
+
+
+                                <a href="#" class="reply-btn" title="Reply">
+
+
+                                    <i class="fa-solid fa-reply"></i>
+
+
+                                </a>
+
+
+
+
+
+                                <a href="#" class="delete-btn" title="Delete"
+                                    data-delete-url="{{ url_for('admin.delete_message', message_id=message.id) }}">
+
+
+                                    <i class="fa-solid fa-trash"></i>
+
+
+                                </a>
+
+
+
+                            </div>
+
+
+                        </td>
+
+
+
+
+
+
+
+
+                    </tr>
+
+
+
+
+
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+                    {% else %}
+
+
+
+                    <tr>
+
+
+                        <td colspan="8">
+
+
+                            <div class="empty-data">
+
+
+                                <i class="fa-solid fa-envelope-circle-check"></i>
+
+
+                                <p>
+
+                                    No messages found
+
+                                </p>
+
+
+                            </div>
+
+
+                        </td>
+
+
+                    </tr>
+
+
+
+
+
+
+                    {% endif %}
+
+
+
+
+
+                </tbody>
+
+
+
+
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<!-- ===================== VIEW MESSAGE MODAL ===================== -->
+
+<div class="modal-overlay" id="viewMessageModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h5>Message Details</h5>
+            <button type="button" class="modal-close" data-close="viewMessageModal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <div class="view-row"><span>From</span><strong id="viewName"></strong></div>
+            <div class="view-row"><span>Email</span><strong id="viewEmail"></strong></div>
+            <div class="view-row"><span>Subject</span><strong id="viewSubject"></strong></div>
+            <div class="view-row"><span>Date</span><strong id="viewCreated"></strong></div>
+            <div class="view-message-box">
+                <span>Message</span>
+                <p id="viewFullMessage"></p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="admin-btn" data-close="viewMessageModal">Close</button>
+            <a href="#" class="admin-btn admin-btn-primary" id="viewReplyBtn">
+                <i class="fa-solid fa-reply"></i>
+                Reply
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block extra_js %}
+
+
+<script src="{{ url_for('admin.static',
+filename='js/messages.js') }}"></script>
+
+
+{% endblock %}

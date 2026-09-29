@@ -1,0 +1,724 @@
+{% extends "admin_layout.html" %}
+
+
+
+{% block title %}
+
+Analytics | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+
+href="{{ url_for('admin.static',
+filename='css/analytics.css') }}">
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block page_title %}
+
+Analytics
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+<div class="analytics-container">
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Page Header
+===================================== -->
+
+
+<div class="page-header">
+
+
+
+<div>
+
+
+<h1>
+
+AI Analytics Dashboard
+
+</h1>
+
+
+
+<p>
+
+Track detection performance and system insights
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+
+<a href="{{ url_for('admin.export_analytics_report') }}"
+
+class="admin-btn admin-btn-primary">
+
+
+<i class="fa-solid fa-file-export"></i>
+
+
+Generate Report
+
+
+</a>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Analytics Summary Cards
+===================================== -->
+
+
+<div class="analytics-summary">
+
+
+
+
+
+
+
+<div class="analytics-card">
+
+
+<div class="analytics-icon blue">
+
+
+<i class="fa-solid fa-database"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ stats.total }}
+
+</h3>
+
+
+<p>
+
+Total Predictions
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="analytics-card">
+
+
+<div class="analytics-icon red">
+
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ stats.fake_percentage }}%
+
+</h3>
+
+
+<p>
+
+Fake News Rate
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="analytics-card">
+
+
+<div class="analytics-icon green">
+
+
+<i class="fa-solid fa-circle-check"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ stats.real_percentage }}%
+
+</h3>
+
+
+<p>
+
+Real News Rate
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="analytics-card">
+
+
+<div class="analytics-icon purple">
+
+
+<i class="fa-solid fa-brain"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+98%
+
+</h3>
+
+
+<p>
+
+AI Accuracy
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Charts Section
+===================================== -->
+
+
+<div class="analytics-grid">
+
+
+
+
+
+
+
+
+<!-- Fake Real Chart -->
+
+
+<div class="analytics-box">
+
+
+
+<div class="box-header">
+
+
+<h4>
+
+Fake vs Real Detection
+
+</h4>
+
+
+</div>
+
+
+
+<canvas id="newsResultChart"
+
+data-fake="{{ stats.fake }}"
+
+data-real="{{ stats.real }}">
+
+</canvas>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Daily Prediction Chart -->
+
+
+<div class="analytics-box">
+
+
+
+<div class="box-header">
+
+
+<h4>
+
+Daily Predictions
+
+</h4>
+
+
+</div>
+
+
+
+<canvas id="dailyPredictionChart"
+
+data-labels='{{ daily_labels|safe }}'
+
+data-counts='{{ daily_counts|safe }}'>
+
+</canvas>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Performance Section
+===================================== -->
+
+
+<div class="analytics-grid">
+
+
+
+
+
+<div class="analytics-box performance-box">
+
+
+
+<div class="box-header">
+
+
+<h4>
+
+AI Model Performance
+
+</h4>
+
+
+</div>
+
+
+
+
+
+
+<div class="performance-item">
+
+
+<div>
+
+
+<span>
+
+Accuracy
+
+</span>
+
+
+</div>
+
+
+
+<div class="performance-progress">
+
+
+<div class="performance-bar"
+
+style="width:98%">
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+
+98%
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="performance-item">
+
+
+<div>
+
+
+<span>
+
+Precision
+
+</span>
+
+
+</div>
+
+
+
+<div class="performance-progress">
+
+
+<div class="performance-bar"
+
+style="width:96%">
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+
+96%
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="performance-item">
+
+
+<div>
+
+
+<span>
+
+Recall
+
+</span>
+
+
+</div>
+
+
+
+<div class="performance-progress">
+
+
+<div class="performance-bar"
+
+style="width:97%">
+
+
+</div>
+
+
+</div>
+
+
+
+<strong>
+
+97%
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Activity Insights
+===================================== -->
+
+
+<div class="analytics-box activity-box">
+
+
+
+<div class="box-header">
+
+
+<h4>
+
+System Insights
+
+</h4>
+
+
+</div>
+
+
+
+
+
+
+<ul class="insight-list">
+
+
+
+<li>
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+Detection accuracy improving
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-users"></i>
+
+More users are using AI detector
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+System security status normal
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-server"></i>
+
+AI model running successfully
+
+</li>
+
+
+
+</ul>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block extra_js %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script src="{{ url_for('admin.static',
+filename='js/analytics.js') }}"></script>
+
+
+{% endblock %}

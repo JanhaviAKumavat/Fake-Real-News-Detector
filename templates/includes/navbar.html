@@ -1,0 +1,383 @@
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+
+
+    <div class="container">
+
+
+
+        <!-- Logo -->
+
+        <a class="navbar-brand d-flex align-items-center logo-text"
+           href="/">
+
+
+            <img src="{{ url_for('static',
+                 filename='images/logo.png') }}"
+                 alt="Logo"
+                 class="logo-img">
+
+
+            <span>
+
+                Fake vs Real News Detector AI
+
+            </span>
+
+
+        </a>
+
+
+
+
+
+        <!-- Mobile Toggle -->
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+
+            <span class="navbar-toggler-icon"></span>
+
+
+        </button>
+
+
+
+
+
+
+        <!-- Navbar Menu -->
+
+
+        <div class="collapse navbar-collapse"
+             id="navbarMenu">
+
+
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+
+
+
+                <!-- Home -->
+
+
+                <li class="nav-item">
+
+
+                    <a class="nav-link 
+                    {% if request.path=='/' %}active{% endif %}"
+                    href="/">
+
+
+                        Home
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+
+                <!-- About -->
+
+
+                <li class="nav-item">
+
+
+                    <a class="nav-link 
+                    {% if request.path=='/about' %}active{% endif %}"
+                    href="/about">
+
+
+                        About
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+
+                <!-- Services -->
+
+
+                <li class="nav-item">
+
+
+                    <a class="nav-link 
+                    {% if request.path=='/services' %}active{% endif %}"
+                    href="/services">
+
+
+                        Services
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+
+                <!-- Detector -->
+
+
+                <li class="nav-item">
+
+
+                    <a class="nav-link 
+                    {% if request.path=='/detector' %}active{% endif %}"
+                    href="/detector">
+
+
+                        Detector
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+
+                <!-- Contact -->
+
+
+                <li class="nav-item">
+
+
+                    <a class="nav-link 
+                    {% if request.path=='/contact' %}active{% endif %}"
+                    href="/contact">
+
+
+                        Contact
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+
+                <!-- ==========================
+                     USER NOT LOGGED IN
+                =========================== -->
+
+
+                {% if not session.get("user_id") %}
+
+
+
+
+
+                <li class="nav-item ms-lg-3">
+
+
+                    <a class="btn login-btn"
+                       href="/login">
+
+
+                        <i class="fa-solid fa-user"></i>
+
+
+                        Login
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+
+                <li class="nav-item ms-lg-2">
+
+
+                    <a class="btn register-btn"
+                       href="/register">
+
+
+                        Register
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+                {% endif %}
+
+
+
+
+
+
+
+
+
+                <!-- ==========================
+                     USER LOGGED IN
+                =========================== -->
+
+
+                {% if session.get("user_id") %}
+
+
+
+
+
+
+                    {% if session.get("role") == "admin" %}
+
+
+
+
+
+                    <!-- ADMIN DASHBOARD -->
+
+
+                    <li class="nav-item ms-lg-3">
+
+
+                        <a class="btn admin-btn"
+                           href="/admin/dashboard">
+
+
+                            <i class="fa-solid fa-user-shield"></i>
+
+
+                            Admin
+
+
+                        </a>
+
+
+                    </li>
+
+
+
+
+
+                    {% else %}
+
+
+
+
+
+                    <!-- USER PROFILE -->
+
+
+                    <li class="nav-item ms-lg-3">
+
+
+                        <a class="nav-link"
+                           href="/profile">
+
+
+                            <i class="fa-solid fa-user"></i>
+
+
+                            Profile
+
+
+                        </a>
+
+
+                    </li>
+
+
+
+
+
+
+                    {% endif %}
+
+
+
+
+
+
+
+
+
+                    <!-- LOGOUT -->
+
+
+                    <li class="nav-item ms-lg-2">
+
+
+                        <a class="btn logout-btn"
+                            href="{{ url_for('auth.logout') }}">
+
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+
+                            Logout
+
+
+                        </a>
+
+
+                    </li>
+
+
+
+
+
+
+
+                {% endif %}
+
+
+
+
+
+            </ul>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</nav>

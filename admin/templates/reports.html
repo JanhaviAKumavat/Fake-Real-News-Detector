@@ -1,0 +1,778 @@
+{% extends "admin_layout.html" %}
+
+
+{% block title %}
+
+Reports | Fake News Detector AI
+
+{% endblock %}
+
+
+
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+href="{{ url_for('admin.static',
+filename='css/reports.css') }}">
+
+{% endblock %}
+
+
+
+
+
+{% block page_title %}
+
+Reports
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+<div class="reports-container">
+
+
+
+<!-- =====================================
+     Page Header
+===================================== -->
+
+
+<div class="page-header">
+
+
+<div>
+
+
+<h1>
+
+Detection Reports
+
+</h1>
+
+
+<p>
+
+Analyze AI fake news detection reports
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<a href="{{ url_for('admin.export_reports') }}"
+
+class="admin-btn admin-btn-primary">
+
+
+<i class="fa-solid fa-file-export"></i>
+
+
+Export All Reports
+
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Report Summary Cards
+===================================== -->
+
+
+<div class="report-summary">
+
+
+
+
+
+<div class="report-card">
+
+
+<div class="report-icon blue">
+
+
+<i class="fa-solid fa-file-lines"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ reports|length }}
+
+</h3>
+
+
+<p>
+
+Total Reports
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="report-card">
+
+
+<div class="report-icon red">
+
+
+<i class="fa-solid fa-ban"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ reports | selectattr("prediction","equalto","Fake News") | list | length }}
+
+</h3>
+
+
+<p>
+
+Fake News Detected
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="report-card">
+
+
+<div class="report-icon green">
+
+
+<i class="fa-solid fa-circle-check"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+{{ reports | selectattr("prediction","equalto","Real News") | list | length }}
+
+</h3>
+
+
+<p>
+
+Real News Verified
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="report-card">
+
+
+<div class="report-icon orange">
+
+
+<i class="fa-solid fa-brain"></i>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+
+AI
+
+</h3>
+
+
+<p>
+
+Model Active
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- =====================================
+     Reports Table
+===================================== -->
+
+
+<div class="admin-card report-table-card">
+
+
+
+
+
+<div class="table-header">
+
+
+<h5>
+
+All Detection Reports
+
+</h5>
+
+
+
+
+
+<div class="table-search">
+
+
+<input
+
+type="text"
+
+id="reportSearch"
+
+placeholder="Search user or news...">
+
+
+<i class="fa-solid fa-search"></i>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+
+
+<table class="table report-table"
+
+id="reportsTable">
+
+
+
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+#
+</th>
+
+
+<th>
+User
+</th>
+
+
+<th>
+News Text
+</th>
+
+
+<th>
+Prediction
+</th>
+
+
+<th>
+Confidence
+</th>
+
+
+<th>
+Date
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+
+<tbody>
+
+
+
+{% if reports %}
+
+
+
+
+{% for report in reports %}
+
+
+
+<tr>
+
+
+
+<td>
+
+{{ loop.index }}
+
+</td>
+
+
+
+
+
+
+
+<!-- USER -->
+
+<td>
+
+
+<div class="user-name">
+
+
+<div class="user-avatar">
+
+
+{{ report.full_name[0]|upper }}
+
+
+</div>
+
+
+
+<span>
+
+{{ report.full_name }}
+
+</span>
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<!-- NEWS TEXT -->
+
+
+<td>
+
+
+<div class="news-text">
+
+
+{{ report.news_text[:80] }}
+
+{% if report.news_text|length > 80 %}
+
+...
+
+{% endif %}
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<!-- PREDICTION -->
+
+
+<td>
+
+
+
+{% if report.prediction == "Fake News" %}
+
+
+
+<span class="badge-fake">
+
+
+<i class="fa-solid fa-xmark"></i>
+
+
+Fake News
+
+
+</span>
+
+
+
+{% else %}
+
+
+
+<span class="badge-real">
+
+
+<i class="fa-solid fa-check"></i>
+
+
+Real News
+
+
+</span>
+
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<!-- CONFIDENCE -->
+
+
+<td>
+
+
+<div class="confidence-bar">
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar"
+
+style="width: {{ report.confidence }}%">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<span>
+
+{{ report.confidence }}%
+
+</span>
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+
+
+
+<!-- DATE -->
+
+
+<td>
+
+
+{{ report.created_at }}
+
+</td>
+
+
+
+
+
+
+
+
+
+<!-- ACTION -->
+
+
+<td>
+
+
+<div class="action-buttons">
+
+
+
+
+
+<a href="{{ url_for('admin.export_user_report',
+user_id=report.user_id) }}"
+
+class="download-btn"
+
+title="Download User Report">
+
+
+<i class="fa-solid fa-download"></i>
+
+
+</a>
+
+
+
+
+
+</div>
+
+
+</td>
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+{% endfor %}
+
+
+
+
+{% else %}
+
+
+
+
+
+<tr>
+
+
+<td colspan="7">
+
+
+<div class="empty-data">
+
+
+<i class="fa-solid fa-folder-open"></i>
+
+
+<p>
+
+No reports available
+
+</p>
+
+
+</div>
+
+
+</td>
+
+
+</tr>
+
+
+
+
+
+{% endif %}
+
+
+
+
+</tbody>
+
+
+
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block extra_js %}
+
+
+<script src="{{ url_for('admin.static',
+filename='js/reports.js') }}">
+
+
+</script>
+
+
+{% endblock %}

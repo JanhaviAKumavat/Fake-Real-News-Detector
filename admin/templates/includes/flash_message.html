@@ -1,0 +1,128 @@
+<!-- ==========================================
+     Fake News Detector AI
+     Admin Flash Messages
+========================================== -->
+
+
+{% with messages = get_flashed_messages(
+    with_categories=true
+) %}
+
+
+
+{% if messages %}
+
+
+
+<div class="flash-container">
+
+
+
+    {% for category, message in messages %}
+
+
+
+
+    <div class="alert alert-{{ category }} alert-dismissible fade show admin-alert"
+         role="alert">
+
+
+
+
+
+        <div class="alert-content">
+
+
+
+            {% if category == "success" %}
+
+
+                <i class="fa-solid fa-circle-check"></i>
+
+
+
+            {% elif category == "danger" %}
+
+
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+
+
+            {% elif category == "warning" %}
+
+
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+
+
+            {% else %}
+
+
+
+                <i class="fa-solid fa-circle-info"></i>
+
+
+
+            {% endif %}
+
+
+
+
+
+
+            <span>
+
+
+                {{ message }}
+
+
+            </span>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+
+
+        </button>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    {% endfor %}
+
+
+
+
+</div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+{% endwith %}

@@ -1,0 +1,403 @@
+/* ===========================
+   Google Fonts
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ===========================
+   Reset
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ===========================
+   Body
+=========================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f5f7fb;
+
+    color:#222;
+
+    overflow-x:hidden;
+
+    line-height:1.6;
+
+}
+
+
+/* ===========================
+   Links
+=========================== */
+
+a{
+
+    text-decoration:none;
+
+    transition:0.3s;
+
+}
+
+
+/* ===========================
+   Images
+=========================== */
+
+img{
+
+    max-width:100%;
+
+}
+
+
+/* ===========================
+   Sections
+=========================== */
+
+section{
+
+    padding:90px 0;
+
+}
+
+
+/* ===========================
+   Container
+=========================== */
+
+.container{
+
+    max-width:1200px;
+
+}
+
+
+/* ===========================
+   Headings
+=========================== */
+
+h1{
+
+    font-size:48px;
+
+    font-weight:700;
+
+}
+
+h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+}
+
+h3{
+
+    font-size:28px;
+
+    font-weight:600;
+
+}
+
+h4{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+h5{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+p{
+
+    font-size:16px;
+
+    color:#555;
+
+}
+
+
+/* ===========================
+   Section Title
+=========================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+    color:#0d6efd;
+
+}
+
+
+/* ===========================
+   Buttons
+=========================== */
+
+.primary-btn{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    padding:12px 30px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    border:none;
+
+    display:inline-block;
+
+}
+
+.primary-btn:hover{
+
+    background:#0b5ed7;
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+.secondary-btn{
+
+    background:#fff;
+
+    color:#0d6efd;
+
+    border:2px solid #0d6efd;
+
+    padding:12px 30px;
+
+    border-radius:50px;
+
+    margin-left:15px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+}
+
+
+/* ===========================
+   Cards
+=========================== */
+
+.feature-card,
+.service-card,
+.about-card,
+.process-card,
+.dashboard-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.feature-card:hover,
+.service-card:hover,
+.about-card:hover,
+.process-card:hover,
+.dashboard-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+/* ===========================
+   Forms
+=========================== */
+
+.form-control{
+
+    border-radius:10px;
+
+    padding:12px;
+
+    border:1px solid #ced4da;
+
+}
+
+.form-control:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:none;
+
+}
+
+
+/* ===========================
+   Icons
+=========================== */
+
+.feature-card i,
+.about-card i,
+.service-card i{
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ===========================
+   Alerts
+=========================== */
+
+.alert{
+
+    border-radius:10px;
+
+}
+
+
+/* ===========================
+   Result Card
+=========================== */
+
+.result-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+
+.real-result{
+
+    color:#198754;
+
+}
+
+
+.fake-result{
+
+    color:#dc3545;
+
+}
+
+
+.real-result i,
+.fake-result i{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* ===========================
+   Loading Spinner
+=========================== */
+
+.loading-box{
+
+    display:none;
+
+}
+
+
+/* ===========================
+   Utility Classes
+=========================== */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-5{
+
+    margin-top:3rem;
+
+}
+
+.mb-4{
+
+    margin-bottom:1.5rem;
+
+}
+
+
+/* ===========================
+   Smooth Scroll
+=========================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* ===========================
+   Selection Color
+=========================== */
+
+::selection{
+
+    background:#0d6efd;
+
+    color:#fff;
+
+}

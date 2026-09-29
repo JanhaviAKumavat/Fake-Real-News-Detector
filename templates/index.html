@@ -1,0 +1,395 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+
+Fake News Detector AI
+
+{% endblock %}
+
+
+
+{% block css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- ===================================================
+                    HERO SECTION
+==================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <!-- Left Content -->
+
+            <div class="col-lg-6">
+
+
+                <span class="hero-badge">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    AI Powered Fake News Detection
+
+                </span>
+
+
+
+                <h1 class="hero-title">
+
+                    Detect Fake News
+
+                    <span>Within Seconds</span>
+
+                </h1>
+
+
+
+                <p class="hero-description">
+
+                    Our AI-powered platform analyzes news articles using
+                    Machine Learning and Natural Language Processing
+                    to identify fake and real news with high accuracy.
+
+                </p>
+
+
+
+                <div class="hero-buttons">
+
+
+                    {% if session.get("user_id") %}
+
+
+                    <a href="{{ url_for('detector.detector') }}"
+                       class="btn btn-primary hero-btn">
+
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Start Detection
+
+
+                    </a>
+
+
+                    {% else %}
+
+
+                    <a href="{{ url_for('auth.login') }}"
+                       class="btn btn-primary hero-btn">
+
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login to Detect
+
+
+                    </a>
+
+
+                    {% endif %}
+
+
+
+                    <a href="{{ url_for('home.about') }}"
+                       class="btn btn-outline-primary hero-btn">
+
+
+                        Learn More
+
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- Right Image -->
+
+
+            <div class="col-lg-6 text-center">
+
+
+                <img src="{{ url_for('static',
+                filename='images/hero.jpeg') }}"
+                     class="img-fluid hero-image"
+                     alt="AI Fake News Detector">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ===================================================
+                    STATISTICS
+==================================================== -->
+
+
+<section class="stats-section">
+
+
+    <div class="container">
+
+
+        <div class="row text-center">
+
+
+            <div class="col-md-3">
+
+
+                <div class="stat-card">
+
+
+                    <h2>95%</h2>
+
+                    <p>Detection Accuracy</p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-md-3">
+
+
+                <div class="stat-card">
+
+
+                    <h2>10K+</h2>
+
+                    <p>Articles Checked</p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-md-3">
+
+
+                <div class="stat-card">
+
+
+                    <h2>24/7</h2>
+
+                    <p>AI Available</p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-md-3">
+
+
+                <div class="stat-card">
+
+
+                    <h2>100%</h2>
+
+                    <p>Secure Platform</p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ===================================================
+                    FEATURES
+==================================================== -->
+
+
+<section class="features-section">
+
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+
+            <h2>
+
+                Why Choose Our AI?
+
+            </h2>
+
+
+
+            <p>
+
+                Powerful features designed to identify misinformation quickly and accurately.
+
+            </p>
+
+
+        </div>
+
+
+
+
+        <div class="row">
+
+
+            <div class="col-lg-4">
+
+
+                <div class="feature-card">
+
+
+                    <i class="fa-solid fa-robot"></i>
+
+
+                    <h4>
+
+                        AI Prediction
+
+                    </h4>
+
+
+                    <p>
+
+                        Advanced Machine Learning model predicts whether
+                        the news is Fake or Real.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="col-lg-4">
+
+
+                <div class="feature-card">
+
+
+                    <i class="fa-solid fa-gauge-high"></i>
+
+
+                    <h4>
+
+                        High Accuracy
+
+                    </h4>
+
+
+                    <p>
+
+                        Optimized TF-IDF model provides highly accurate
+                        classification results.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="col-lg-4">
+
+
+                <div class="feature-card">
+
+
+                    <i class="fa-solid fa-lock"></i>
+
+
+                    <h4>
+
+                        Secure Accounts
+
+                    </h4>
+
+
+                    <p>
+
+                        User accounts are protected using hashed passwords
+                        and secure login sessions.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,624 @@
+/* ==========================================
+   SERVICES PAGE
+========================================== */
+
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.services-header{
+
+    padding:140px 0 90px;
+
+    background:linear-gradient(135deg,#0d6efd,#4f8cff);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+
+.services-header h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+.services-header p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:19px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+}
+
+
+
+
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+
+.section-title h2{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:#1d3557;
+
+}
+
+
+.section-title p{
+
+    color:#666;
+
+    font-size:17px;
+
+    max-width:700px;
+
+    margin:15px auto 0;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* ==========================================
+   AI SERVICES
+========================================== */
+
+
+.services-section{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+
+
+.service-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    height:100%;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+
+
+.service-card i{
+
+    width:85px;
+
+    height:85px;
+
+    line-height:85px;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:35px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.service-card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    color:#1d3557;
+
+}
+
+
+
+.service-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   USER FEATURES
+========================================== */
+
+
+.feature-service-section{
+
+    padding:100px 0;
+
+    background:#f8f9fc;
+
+}
+
+
+
+.feature-service-card{
+
+    background:#fff;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    height:100%;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.feature-service-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.feature-service-card i{
+
+    font-size:50px;
+
+    color:#0d6efd;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.feature-service-card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.feature-service-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   ADMIN FEATURES
+========================================== */
+
+
+.admin-service-section{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+
+
+.admin-card{
+
+    background:#fff;
+
+    padding:40px 30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    height:100%;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.admin-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.admin-card i{
+
+    font-size:50px;
+
+    color:#198754;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.admin-card h4{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.admin-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   FUTURE FEATURES
+========================================== */
+
+
+.future-section{
+
+    padding:100px 0;
+
+    background:#f8f9fc;
+
+}
+
+
+
+.future-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+
+
+.future-item{
+
+    width:220px;
+
+    padding:30px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.future-item:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.future-item i{
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.future-item span{
+
+    display:block;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+
+.services-cta{
+
+    padding:90px 0;
+
+    background:linear-gradient(135deg,#0d6efd,#3f7dfc);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+
+
+.services-cta h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.services-cta p{
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.services-cta .btn{
+
+    padding:15px 35px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border-radius:10px;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+
+.service-card,
+.feature-service-card,
+.admin-card,
+.future-item{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+@keyframes fadeUp{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+
+@media(max-width:991px){
+
+
+    .services-header h1{
+
+        font-size:42px;
+
+    }
+
+
+    .section-title h2{
+
+        font-size:34px;
+
+    }
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .services-header{
+
+        padding-top:120px;
+
+    }
+
+
+    .services-header h1{
+
+        font-size:34px;
+
+    }
+
+
+    .section-title h2{
+
+        font-size:30px;
+
+    }
+
+
+    .services-cta h2{
+
+        font-size:32px;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:576px){
+
+
+    .services-header h1{
+
+        font-size:28px;
+
+    }
+
+
+    .services-header p{
+
+        font-size:16px;
+
+    }
+
+
+    .future-item{
+
+        width:100%;
+
+    }
+
+
+}

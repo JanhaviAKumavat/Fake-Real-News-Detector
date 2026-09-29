@@ -1,0 +1,256 @@
+<!-- ==========================================
+     Fake News Detector AI
+     Admin Topbar
+========================================== -->
+
+
+<header class="admin-topbar">
+
+
+
+    <!-- ===============================
+         Left Section
+    ================================ -->
+
+
+    <div class="topbar-left">
+
+
+        <!-- Mobile Sidebar Toggle -->
+
+
+        <button 
+            class="sidebar-toggle"
+            id="sidebarToggle"
+            type="button">
+
+
+            <i class="fa-solid fa-bars"></i>
+
+
+        </button>
+
+
+
+
+
+
+        <!-- Page Title -->
+
+
+        <div class="page-title">
+
+
+            <h5>
+
+
+                {% block page_title %}
+
+                    Dashboard
+
+
+                {% endblock %}
+
+
+            </h5>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ===============================
+         Right Section
+    ================================ -->
+
+
+    <div class="topbar-right">
+
+
+
+
+
+        <!-- Search -->
+
+
+        <!-- <div class="search-box">
+
+
+            <input 
+                type="text"
+                placeholder="Search...">
+
+
+            <i class="fa-solid fa-search"></i>
+
+
+        </div> -->
+
+
+
+
+
+
+
+
+        <!-- Admin Profile -->
+
+
+        <div class="admin-profile dropdown">
+
+
+
+            <button
+                class="profile-button dropdown-toggle"
+                data-bs-toggle="dropdown"
+                type="button">
+
+
+
+
+
+                <img 
+                src="https://ui-avatars.com/api/?name=Admin"
+                alt="Admin">
+
+
+
+
+
+                <div class="admin-info">
+
+
+                    <span>
+
+                        {{ session.get('admin_name','Admin') }}
+
+                    </span>
+
+
+
+                    <small>
+
+                        Administrator
+
+                    </small>
+
+
+
+                </div>
+
+
+
+            </button>
+
+
+
+
+
+
+            <ul class="dropdown-menu dropdown-menu-end">
+
+
+
+                <li>
+
+
+                    <a class="dropdown-item"
+                       href="{{ url_for('admin.profile') }}">
+
+
+                        <i class="fa-solid fa-user"></i>
+
+
+                        Profile
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+                <li>
+
+
+                    <a class="dropdown-item"
+                       href="{{ url_for('admin.settings') }}">
+
+
+                        <i class="fa-solid fa-gear"></i>
+
+
+                        Settings
+
+
+                    </a>
+
+
+                </li>
+
+
+
+
+
+                <li>
+
+
+                    <hr class="dropdown-divider">
+
+
+                </li>
+
+
+
+
+
+                <li>
+
+
+                    <a class="dropdown-item text-danger"
+                       href="{{ url_for('auth.logout') }}">
+
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+
+                        Logout
+
+
+                    </a>
+
+
+                </li>
+
+
+
+            </ul>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+</header>

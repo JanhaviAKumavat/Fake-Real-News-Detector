@@ -1,0 +1,170 @@
+/* ==========================================
+   Footer
+========================================== */
+
+.custom-footer{
+    background: linear-gradient(135deg, #0F172A, #1E293B);
+    color: #ffffff;
+    padding: 60px 0 20px;
+    margin-top: 80px;
+}
+
+
+/* ==========================================
+   Footer Headings
+========================================== */
+
+.custom-footer h4{
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   Footer Paragraph
+========================================== */
+
+.custom-footer p{
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   Footer Links
+========================================== */
+
+.footer-links{
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li{
+    margin-bottom: 12px;
+}
+
+.footer-links a{
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover{
+    color: #38BDF8;
+    padding-left: 8px;
+}
+
+
+/* ==========================================
+   Contact Info
+========================================== */
+
+.contact-item{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.contact-item i{
+    font-size: 18px;
+    color: #38BDF8;
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+
+/* ==========================================
+   Social Icons
+========================================== */
+
+.social-icons{
+    margin-top: 20px;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover{
+    background: #38BDF8;
+    color: #0F172A;
+    transform: translateY(-5px);
+}
+
+
+/* ==========================================
+   Horizontal Line
+========================================== */
+
+.custom-footer hr{
+    border-color: rgba(255,255,255,0.15);
+    margin: 30px 0 20px;
+}
+
+
+/* ==========================================
+   Copyright
+========================================== */
+
+.copyright{
+    text-align: center;
+}
+
+.copyright p{
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width:991px){
+
+    .custom-footer{
+        text-align:center;
+    }
+
+    .contact-item{
+        justify-content:center;
+    }
+
+    .contact-item i{
+        margin-right:10px;
+    }
+
+    .social-icons{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .custom-footer{
+        padding:40px 0 20px;
+    }
+
+    .custom-footer h4{
+        font-size:22px;
+    }
+
+    .custom-footer p{
+        font-size:15px;
+    }
+
+}
